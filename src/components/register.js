@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import * as yup from 'yup'
 
-const loginState = {
+const registerState = {
   username: "",
   password: ""
 }
@@ -14,6 +14,7 @@ const errorState = {
    username: "",
    password: ""
  }
+
 
 const formSchema = yup.object().shape( {
    username: yup.string()
@@ -25,11 +26,12 @@ const formSchema = yup.object().shape( {
       'Minimum : 1 Letter, 1 Number, 1 Special Character'),
 } ) 
 
-const LoginForm = (props) => {
+
+const RegisterForm = (props) => {
 
   const { push } = useHistory();
 
-  const [userForm, setUserForm] = useState(loginState);
+  const [userForm, setUserForm] = useState(registerState);
   const [errorForm, setErrorForm] = useState(errorState);  // START HERE  ----> 1/25/21
   const [buttonState, setButtonState] = useState(true);
 
@@ -52,7 +54,6 @@ const LoginForm = (props) => {
    }
 
    // BUTTON-------------------------
-
    useEffect(() => {
       formSchema.isValid(userForm)
       .then(valid => {
@@ -69,7 +70,7 @@ const LoginForm = (props) => {
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      
+   
       axiosWithAuth().post("/login", userForm)
       .then((res) => {            
          window.localStorage.setItem("token", res.data.payload);
@@ -78,10 +79,10 @@ const LoginForm = (props) => {
       .catch((err) => console.log(err));
   };
 
-  // YUP INLINE STYLES
+  // YUP INLINE STYLES FOR ERROR MESSAGE
   let yupStyling = { 
      color: 'red', 
-     fontSize: '1rem',
+     fontSize: '.8rem',
      fontWeight: 'bold',
      margin: 0 }
 
@@ -117,14 +118,13 @@ const LoginForm = (props) => {
         
          <div className="baseline" />
 
-        <button className="md-button form-button" disabled={buttonState}>Login</button>
-        <Link className="register-link" to="/register">Need to Register?</Link>
+        <button className="md-button form-button" disabled={buttonState}>Register</button>
       </form>
     </FormWrapper>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
 
 
 const FormWrapper = styled.div`
