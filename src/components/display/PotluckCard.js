@@ -28,13 +28,13 @@ console.log("PROPS IN CARD",props)
             <p>Salad: {props.item.salad}</p>
             <p>Main Dish: {props.item.main_dish}</p>
          </div>
-         <div>
+         <div className="card-two">
             <p>Dessert: {props.item.dessert}</p>
             <p>Drinks: {props.item.drinks}</p>
             <p>Utensils: {props.item.utensils}</p>
          </div>
       </ItemDisplay>
-      <div className="card-two">
+      <div>
         <button>Edit</button>
         <button>Delete</button>
       </div>
