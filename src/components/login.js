@@ -81,7 +81,7 @@ const LoginForm = (props) => {
   // YUP INLINE STYLES
   let yupStyling = { 
      color: 'red', 
-     fontSize: '1rem',
+     fontSize: '.8rem',
      fontWeight: 'bold',
      margin: 0 }
 

@@ -17,7 +17,7 @@ ReactDOM.render(
 //<Provider store={store}>
    <Router>
       <App />
-   </Router>,
+   </Router>, // delete comma <---
 //</Provider>,
   document.getElementById('root')
 );
