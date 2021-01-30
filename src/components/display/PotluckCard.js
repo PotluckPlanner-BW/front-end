@@ -48,7 +48,8 @@ export default PotluckCard;
 
 const FormWrapper = styled.div`
    border: 1px solid gray;
-   width: 300px;
+   box-shadow: 3px 3px 5px gray;
+   width: 80%;
    margin: 10px auto;
    padding: 10px;
 `;
