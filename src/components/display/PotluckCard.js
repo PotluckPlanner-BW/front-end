@@ -52,6 +52,11 @@ const FormWrapper = styled.div`
    width: 80%;
    margin: 10px auto;
    padding: 10px;
+
+   button{
+      padding:  5px 10px;
+      margin: 0 3px;
+   }
 `;
 
 const ItemDisplay = styled.div`
@@ -62,9 +67,6 @@ const ItemDisplay = styled.div`
    }
    .card-two{
       width: 50%;
-
-      button{
-         margin: 3px;
-      }
    }
+
 `;
