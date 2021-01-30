@@ -1,35 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { axiosWithAuth } from '../utils/AxiosWithAuth'
+import { axiosWithAuth } from '../../utils/AxiosWithAuth'
 import styled from 'styled-components'
 
 import * as yup from 'yup'
 
-const loginState = {
-  username: "",
-  password: ""
+const potluckState = {
+   location: "",
+   date: "",
+   time: "",
+   invited: "",
+   appetizer: "",
+   salad: "",
+   main_dish: "",
+   dessert: "",
+   drinks:"",
+   utensils: "" 
 }
 
 const errorState = {
-   username: "",
-   password: ""
+   location: "",
+   date: "",
+   time: ""
  }
 
 const formSchema = yup.object().shape( {
-   username: yup.string()
-      .required("Name is Required"),
-   password: yup.string()
-      .required('Password is Required') 
-      .min(8, 'Requires 8 characters minimum')
-      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 
-      'Minimum : 1 Letter, 1 Number, 1 Special Character'),
+   location: yup.string()
+      .required("Location is Required"),
+   date: yup.string()
+      .required("Date is Required"),   
+   time: yup.string()
+      .required("Time is Required"),        
+  
 } ) 
 
-const LoginForm = (props) => {
+const PotluckForm = (props) => {
 
   const { push } = useHistory();
 
-  const [userForm, setUserForm] = useState(loginState);
+  const [potluckForm, setPotluckForm] = useState(potluckState);
   const [errorForm, setErrorForm] = useState(errorState);  
   const [buttonState, setButtonState] = useState(true);
 
@@ -54,23 +63,23 @@ const LoginForm = (props) => {
    // BUTTON-------------------------
 
    useEffect(() => {
-      formSchema.isValid(userForm)
+      formSchema.isValid(potluckForm)
       .then(valid => {
          setButtonState(!valid); // don't hardcode - base on value returned
       });
-   }, [userForm]);
+   }, [potluckForm]);
 
 
   const changeHandler = (ev) => {
       ev.persist();
       validate(ev);
-      setUserForm( {...userForm, [ev.target.name]: ev.target.value });
+      setPotluckForm( {...potluckForm, [ev.target.name]: ev.target.value });
   };
 
   const handleSubmit = (e) => {
       e.preventDefault();
       
-      axiosWithAuth().post("/login", userForm)
+      axiosWithAuth().post("/foo-bar", potluckForm)
       .then((res) => {            
          window.localStorage.setItem("token", res.data.payload);
          push("/foo-bar");
@@ -87,51 +96,138 @@ const LoginForm = (props) => {
 
   return (
     <FormWrapper>
-      <h2>Login</h2>
+      <h2>Create Potluck</h2>
       <form onSubmit={handleSubmit}>
 
-        <label htmlFor="name">
+        <label htmlFor="location">
          <input
             type="text"
-            name="username"
+            name="location"
             onChange={changeHandler}
-            placeholder="Name"
-            value={userForm.username}
+            placeholder="Location"
+            value={potluckForm.location}
          />
-         { ( errorForm.username.length > 0 ) 
-                  ? <p style={yupStyling}>{errorForm.username}</p> 
+         { ( errorForm.location.length > 0 ) 
+                  ? <p style={yupStyling}>{errorForm.location}</p> 
                   : null }
         </label>
         <div className="baseline" />
 
-        <label htmlFor="password">
+        <label htmlFor="date">
          <input
-            type="password"
-            name="password"
+            type="text"
+            name="date"
             onChange={changeHandler}
-            placeholder="Password"
-            value={userForm.password}
+            placeholder="Date"
+            value={potluckForm.date}
          />
-         { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
+         { (errorForm.date.length > 0) ? <p style={yupStyling}>{errorForm.date}</p> : null }
         </label>
-        
          <div className="baseline" />
 
-        <button className="md-button form-button" disabled={buttonState}>Login</button>
-        <Link className="register-link" to="/register">Need to Register?</Link>
+         <label htmlFor="time">
+         <input
+            type="text"
+            name="time"
+            onChange={changeHandler}
+            placeholder="Time"
+            value={potluckForm.time}
+         />
+         { (errorForm.time.length > 0) ? <p style={yupStyling}>{errorForm.time}</p> : null }
+        </label>
+         <div className="baseline" />
+
+         <label htmlFor="invited">
+         <input
+            type="text"
+            name="invited"
+            onChange={changeHandler}
+            placeholder="Friends to Invite"
+            value={potluckForm.invited}
+         />
+         </label>
+         <div className="baseline" />
+
+         <label htmlFor="appetizer">
+         <input
+            type="text"
+            name="appetizer"
+            onChange={changeHandler}
+            placeholder="Appetizer"
+            value={potluckForm.appetizer}
+         />
+         </label>
+         <div className="baseline" />
+ 
+         <label htmlFor="salad">
+         <input
+            type="text"
+            name="salad"
+            onChange={changeHandler}
+            placeholder="Salad"
+            value={potluckForm.salad}
+         />
+         </label>
+         <div className="baseline" />
+
+         <label htmlFor="main_dish">
+         <input
+            type="text"
+            name="main_dish"
+            onChange={changeHandler}
+            placeholder="Main Dish"
+            value={potluckForm.main_dish}
+         />
+         </label>
+         <div className="baseline" />
+
+         <label htmlFor="dessert">
+         <input
+            type="text"
+            name="dessert"
+            onChange={changeHandler}
+            placeholder="Dessert"
+            value={potluckForm.dessert}
+         />
+         </label>
+         <div className="baseline" />
+
+         <label htmlFor="drinks">
+         <input
+            type="text"
+            name="drinks"
+            onChange={changeHandler}
+            placeholder="Drinks"
+            value={potluckForm.drinks}
+         />
+         </label>
+         <div className="baseline" />
+
+         <label htmlFor="utensils">
+         <input
+            type="text"
+            name="utensils"
+            onChange={changeHandler}
+            placeholder="Utensils"
+            value={potluckForm.utensils}
+         />
+         </label>
+         <div className="baseline" />
+
+        <button className="md-button form-button" disabled={buttonState}>Add Potluck</button>
       </form>
     </FormWrapper>
   );
 };
 
-export default LoginForm;
+export default PotluckForm;
 
 
 const FormWrapper = styled.div`
+   width: 50%;
 
    form{
       margin: 0 auto;
-      width: 300px;
    }
    input{
       border: 0;
@@ -148,11 +244,13 @@ const FormWrapper = styled.div`
    .baseline,
    input {
       background-color: #fff;
-      font-size: 21px;
-      height: 50px;
+      font-size: 16px;
+      height: 30px;
       width: 300px;
+      font-weight: 900;
       padding: 0 8px;
       color: #1c5d76;
+      margin: 0 auto;
    }
    .baseline {
       height: 3px;

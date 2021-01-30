@@ -1,24 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
+import './index.css';
+import App from './App';
 
 // redux imports
-//import { **addHere** } from './reducers/index'
+import { potluckReducer } from './reducers/index'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
-//let store = createStore( **addHere**, applyMiddleware(thunk))
+let store = createStore( potluckReducer, applyMiddleware(thunk))
 
-import './index.css';
-import App from './App';
 
 ReactDOM.render(
-//<Provider store={store}>
+<Provider store={store}>
    <Router>
       <App />
-   </Router>, // delete comma <---
-//</Provider>,
+   </Router>
+</Provider>,
   document.getElementById('root')
 );
 

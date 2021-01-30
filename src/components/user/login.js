@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { axiosWithAuth } from '../utils/AxiosWithAuth'
+import { axiosWithAuth } from '../../utils/AxiosWithAuth'
 import styled from 'styled-components'
 
 import * as yup from 'yup'
 
-const registerState = {
+const loginState = {
   username: "",
   password: ""
 }
@@ -14,7 +14,6 @@ const errorState = {
    username: "",
    password: ""
  }
-
 
 const formSchema = yup.object().shape( {
    username: yup.string()
@@ -26,13 +25,12 @@ const formSchema = yup.object().shape( {
       'Minimum : 1 Letter, 1 Number, 1 Special Character'),
 } ) 
 
-
-const RegisterForm = (props) => {
+const LoginForm = (props) => {
 
   const { push } = useHistory();
 
-  const [registerForm, setRegisterForm] = useState(registerState);
-  const [errorForm, setErrorForm] = useState(errorState); 
+  const [userForm, setUserForm] = useState(loginState);
+  const [errorForm, setErrorForm] = useState(errorState);  
   const [buttonState, setButtonState] = useState(true);
 
   const validate = (e) => {
@@ -54,24 +52,25 @@ const RegisterForm = (props) => {
    }
 
    // BUTTON-------------------------
+
    useEffect(() => {
-      formSchema.isValid(registerForm)
+      formSchema.isValid(userForm)
       .then(valid => {
-         setButtonState(!valid); 
+         setButtonState(!valid); // don't hardcode - base on value returned
       });
-   }, [registerForm]);
+   }, [userForm]);
 
 
   const changeHandler = (ev) => {
       ev.persist();
       validate(ev);
-      setRegisterForm( {...registerForm, [ev.target.name]: ev.target.value });
+      setUserForm( {...userForm, [ev.target.name]: ev.target.value });
   };
 
   const handleSubmit = (e) => {
       e.preventDefault();
-   
-      axiosWithAuth().post("/register", registerForm)
+      
+      axiosWithAuth().post("/login", userForm)
       .then((res) => {            
          window.localStorage.setItem("token", res.data.payload);
          push("/foo-bar");
@@ -79,7 +78,7 @@ const RegisterForm = (props) => {
       .catch((err) => console.log(err));
   };
 
-  // YUP INLINE STYLES FOR ERROR MESSAGE
+  // YUP INLINE STYLES
   let yupStyling = { 
      color: 'red', 
      fontSize: '.8rem',
@@ -88,7 +87,7 @@ const RegisterForm = (props) => {
 
   return (
     <FormWrapper>
-      <h2>Registration</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="name">
@@ -97,7 +96,7 @@ const RegisterForm = (props) => {
             name="username"
             onChange={changeHandler}
             placeholder="Name"
-            value={registerForm.username}
+            value={userForm.username}
          />
          { ( errorForm.username.length > 0 ) 
                   ? <p style={yupStyling}>{errorForm.username}</p> 
@@ -111,20 +110,21 @@ const RegisterForm = (props) => {
             name="password"
             onChange={changeHandler}
             placeholder="Password"
-            value={registerForm.password}
+            value={userForm.password}
          />
          { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
         </label>
         
          <div className="baseline" />
 
-        <button className="md-button form-button" disabled={buttonState}>Register</button>
+        <button className="md-button form-button" disabled={buttonState}>Login</button>
+        <Link className="register-link" to="/register">Need to Register?</Link>
       </form>
     </FormWrapper>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
 
 
 const FormWrapper = styled.div`
