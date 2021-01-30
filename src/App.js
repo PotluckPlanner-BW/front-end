@@ -5,6 +5,7 @@ import RegisterForm from './components/register'
 function App() {
   return (
     <div className="App">
+       <LoginForm/>
        <RegisterForm />
     </div>
   );

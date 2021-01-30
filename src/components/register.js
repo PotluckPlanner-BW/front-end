@@ -31,8 +31,8 @@ const RegisterForm = (props) => {
 
   const { push } = useHistory();
 
-  const [userForm, setUserForm] = useState(registerState);
-  const [errorForm, setErrorForm] = useState(errorState);  // START HERE  ----> 1/25/21
+  const [registerForm, setRegisterForm] = useState(registerState);
+  const [errorForm, setErrorForm] = useState(errorState); 
   const [buttonState, setButtonState] = useState(true);
 
   const validate = (e) => {
@@ -55,23 +55,23 @@ const RegisterForm = (props) => {
 
    // BUTTON-------------------------
    useEffect(() => {
-      formSchema.isValid(userForm)
+      formSchema.isValid(registerForm)
       .then(valid => {
-         setButtonState(!valid); // don't hardcode - base on value returned
+         setButtonState(!valid); 
       });
-   }, [userForm]);
+   }, [registerForm]);
 
 
   const changeHandler = (ev) => {
       ev.persist();
       validate(ev);
-      setUserForm( {...userForm, [ev.target.name]: ev.target.value });
+      setRegisterForm( {...registerForm, [ev.target.name]: ev.target.value });
   };
 
   const handleSubmit = (e) => {
       e.preventDefault();
    
-      axiosWithAuth().post("/login", userForm)
+      axiosWithAuth().post("/register", registerForm)
       .then((res) => {            
          window.localStorage.setItem("token", res.data.payload);
          push("/foo-bar");
@@ -88,7 +88,7 @@ const RegisterForm = (props) => {
 
   return (
     <FormWrapper>
-      <h2>User Login</h2>
+      <h2>Registration</h2>
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="name">
@@ -97,7 +97,7 @@ const RegisterForm = (props) => {
             name="username"
             onChange={changeHandler}
             placeholder="Name"
-            value={userForm.username}
+            value={registerForm.username}
          />
          { ( errorForm.username.length > 0 ) 
                   ? <p style={yupStyling}>{errorForm.username}</p> 
@@ -111,7 +111,7 @@ const RegisterForm = (props) => {
             name="password"
             onChange={changeHandler}
             placeholder="Password"
-            value={userForm.password}
+            value={registerForm.password}
          />
          { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
         </label>

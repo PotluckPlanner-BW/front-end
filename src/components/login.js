@@ -30,7 +30,7 @@ const LoginForm = (props) => {
   const { push } = useHistory();
 
   const [userForm, setUserForm] = useState(loginState);
-  const [errorForm, setErrorForm] = useState(errorState);  // START HERE  ----> 1/25/21
+  const [errorForm, setErrorForm] = useState(errorState);  
   const [buttonState, setButtonState] = useState(true);
 
   const validate = (e) => {
@@ -87,7 +87,7 @@ const LoginForm = (props) => {
 
   return (
     <FormWrapper>
-      <h2>User Login</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="name">
