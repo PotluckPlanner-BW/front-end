@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { axiosWithAuth } from '../../utils/AxiosWithAuth'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import * as yup from 'yup';
 
-import * as yup from 'yup'
+import bgImage from '../../images/login-bg-hero.svg'
 
 const loginState = {
   username: "",
@@ -120,14 +121,29 @@ const LoginForm = (props) => {
         <button className="md-button form-button" disabled={buttonState}>Login</button>
         <Link className="register-link" to="/register">Need to Register?</Link>
       </form>
+      <ImageDiv>
+         <img src={bgImage} alt=''/>
+      </ImageDiv>
     </FormWrapper>
   );
 };
 
 export default LoginForm;
 
+const ImageDiv = styled.div`
+   position: relative;
+
+   img {
+      width: 200px;
+   }
+`;
 
 const FormWrapper = styled.div`
+   background: rgb(255,255,255);
+   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(223,182,112,1) 100%, rgba(0,212,255,1) 100%);
+   height: 85vh;
+
+
 
    form{
       margin: 0 auto;
