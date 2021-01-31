@@ -5,6 +5,9 @@ import styled from 'styled-components'
 
 import * as yup from 'yup'
 
+//images
+import bgImage from '../../images/register-bg-hero.svg';
+
 const registerState = {
   username: "",
   password: ""
@@ -119,7 +122,11 @@ const RegisterForm = (props) => {
          <div className="baseline" />
 
         <button className="md-button form-button" disabled={buttonState}>Register</button>
+        <Link className="register-link" to="/login">Already have an account?</Link>
       </form>
+      <ImageDiv>
+      <img src={bgImage} alt=''/>
+      </ImageDiv>
     </FormWrapper>
   );
 };
@@ -127,7 +134,19 @@ const RegisterForm = (props) => {
 export default RegisterForm;
 
 
+const ImageDiv = styled.div`
+   position: relative;
+
+   img {
+      width: 200px;
+   }
+`;
+
 const FormWrapper = styled.div`
+
+   background: rgb(255,255,255);
+   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(223,182,112,1) 100%, rgba(0,212,255,1) 100%);
+   height: 85vh;
 
    form{
       margin: 0 auto;

@@ -4,7 +4,7 @@ import { axiosWithAuth } from '../../utils/AxiosWithAuth'
 import styled from 'styled-components';
 import * as yup from 'yup';
 
-import bgImage from '../../images/login-bg-hero.svg'
+import bgImage from '../../images/login-bg-hero.svg';
 
 const loginState = {
   username: "",
