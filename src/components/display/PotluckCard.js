@@ -1,21 +1,12 @@
 import React from 'react';
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { setCurrent, temporaryDelete } from '../../actions/index'
 
-// Context
-// import PlantContext from '../../context/plant/plantContext';
 
 const PotluckCard = (props) => {
-  // const plantContext = useContext(PlantContext);
-  // const { deletePlant, setCurrent, clearCurrent } = plantContext;
 
-  // const { id, species, nickname, h2oFrequency } = plant;
-
-//   const onDelete = () => {
-//     deletePlant(id);
-//     clearCurrent();
-//   };
-console.log("PROPS IN CARD",props)
-
+   console.log("potluck card", props)
   return (
     <FormWrapper>
       <h3>{props.item.location}</h3>
@@ -35,8 +26,8 @@ console.log("PROPS IN CARD",props)
          </div>
       </ItemDisplay>
       <div>
-        <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={() => props.setCurrent(props.item)}>Edit</button>
+        <button onClick={() => props.temporaryDelete(props.item.id)}>Delete</button>
       </div>
 
     </FormWrapper>
@@ -44,7 +35,7 @@ console.log("PROPS IN CARD",props)
 };
 
 
-export default PotluckCard;
+export default connect(null,{setCurrent, temporaryDelete})(PotluckCard);
 
 const FormWrapper = styled.div`
    border: 1px solid gray;

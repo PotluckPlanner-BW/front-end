@@ -3,6 +3,7 @@
 const data = {
    potlucks : [
       {
+         id: 1,
          location: "New York",
          date: "7/14/21",
          time: "9:00am",
@@ -15,6 +16,7 @@ const data = {
          utensils: "" 
       },
       {
+         id: 2,
          location: "Hawaii",
          date: "8/14/21",
          time: "11:00am",
@@ -27,6 +29,7 @@ const data = {
          utensils: "Amanda" 
       },
       {
+         id:3,
          location: "Canada",
          date: "9/14/22",
          time: "7:00pm",
@@ -38,6 +41,7 @@ const data = {
          drinks:"",
          utensils: "Amanda" 
       },
-   ]
+   ],
+   current: null
 }
 export default data;

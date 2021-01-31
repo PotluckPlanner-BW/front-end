@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { axiosWithAuth } from '../../utils/AxiosWithAuth'
 import styled from 'styled-components'
+import { useForm } from '../../utils/useForm'
 
-import * as yup from 'yup'
+// REDUX
+import { connect } from 'react-redux'
+import { 
+   temporaryAdd,
+   temporaryEdit, 
+   setCurrent, 
+   clearCurrent } from '../../actions/index'
 
-const potluckState = {
+
+const initialFormState = {
    location: "",
    date: "",
    time: "",
@@ -18,98 +25,59 @@ const potluckState = {
    utensils: "" 
 }
 
-const errorState = {
-   location: "",
-   date: "",
-   time: ""
- }
-
-const formSchema = yup.object().shape( {
-   location: yup.string()
-      .required("Location is Required"),
-   date: yup.string()
-      .required("Date is Required"),   
-   time: yup.string()
-      .required("Time is Required"),        
-  
-} ) 
-
 const PotluckForm = (props) => {
 
   const { push } = useHistory();
+  // useForm - custom hook
+  const [values, setValues, handleChanges] = useForm(initialFormState);
 
-  const [potluckForm, setPotluckForm] = useState(potluckState);
-  const [errorForm, setErrorForm] = useState(errorState);  
-  const [buttonState, setButtonState] = useState(true);
-
-  const validate = (e) => {
-
-      yup.reach( formSchema, e.target.name )
-         .validate(e.target.value)
-            .then( (validation) => {
-               setErrorForm({
-                  ...errorForm,
-                  [e.target.name]: "" //set as empty string - clear when valid
-               })
-            })
-            .catch( (err) => {
-               setErrorForm({
-                  ...errorForm,
-                  [e.target.name]: err.errors[0]
-               })
-            })
-   }
-
-   // BUTTON-------------------------
 
    useEffect(() => {
-      formSchema.isValid(potluckForm)
-      .then(valid => {
-         setButtonState(!valid); // don't hardcode - base on value returned
-      });
-   }, [potluckForm]);
+      // DETERMINE WHETHER ITS AN ADD OR EDIT FORM
+      if (props.state.current !== null) {
+         setValues(props.state.current);
+       } else {
+         setValues(initialFormState);
+       }
+   }, [props.state,setValues]); // KEEP AN EYE ON THIS, CONCERNING "plantContext" from example
 
 
-  const changeHandler = (ev) => {
-      ev.persist();
-      validate(ev);
-      setPotluckForm( {...potluckForm, [ev.target.name]: ev.target.value });
-  };
 
   const handleSubmit = (e) => {
       e.preventDefault();
+      if (props.state.current === null) {
+         // ***** "ADD" ACTIONS/REDUX CODE HERE ***** ALANNA
+         props.temporaryAdd(values)
+      } else {
+         // ***** "EDIT" ACTIONS/REDUX CODE HERE ***** ALANNA
+         props.temporaryEdit(values)
+      }
+      // RESET current in state
+      props.clearCurrent();
+      // RESET FORM
+      setValues(initialFormState)
       
-      axiosWithAuth().post("/foo-bar", potluckForm)
-      .then((res) => {            
-         window.localStorage.setItem("token", res.data.payload);
-         push("/foo-bar");
-      })
-      .catch((err) => console.log(err));
   };
 
-  // YUP INLINE STYLES
-  let yupStyling = { 
-     color: 'red', 
-     fontSize: '.8rem',
-     fontWeight: 'bold',
-     margin: 0 }
+  const clearAll = () => {
+   props.clearCurrent();
+   setValues(initialFormState)
+  };
+
 
   return (
     <FormWrapper>
-      <h2>Create Potluck</h2>
+      <h2>{props.state.current ? 'Edit Potluck' : 'Create Potluck'}</h2>
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="location">
          <input
             type="text"
             name="location"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Location"
-            value={potluckForm.location}
+            value={values.location}
          />
-         { ( errorForm.location.length > 0 ) 
-                  ? <p style={yupStyling}>{errorForm.location}</p> 
-                  : null }
         </label>
         <div className="baseline" />
 
@@ -117,11 +85,10 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="date"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Date"
-            value={potluckForm.date}
+            value={values.date}
          />
-         { (errorForm.date.length > 0) ? <p style={yupStyling}>{errorForm.date}</p> : null }
         </label>
          <div className="baseline" />
 
@@ -129,11 +96,10 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="time"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Time"
-            value={potluckForm.time}
+            value={values.time}
          />
-         { (errorForm.time.length > 0) ? <p style={yupStyling}>{errorForm.time}</p> : null }
         </label>
          <div className="baseline" />
 
@@ -141,9 +107,9 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="invited"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Friends to Invite"
-            value={potluckForm.invited}
+            value={values.invited}
          />
          </label>
          <div className="baseline" />
@@ -152,9 +118,9 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="appetizer"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Appetizer"
-            value={potluckForm.appetizer}
+            value={values.appetizer}
          />
          </label>
          <div className="baseline" />
@@ -163,9 +129,9 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="salad"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Salad"
-            value={potluckForm.salad}
+            value={values.salad}
          />
          </label>
          <div className="baseline" />
@@ -174,9 +140,9 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="main_dish"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Main Dish"
-            value={potluckForm.main_dish}
+            value={values.main_dish}
          />
          </label>
          <div className="baseline" />
@@ -185,9 +151,9 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="dessert"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Dessert"
-            value={potluckForm.dessert}
+            value={values.dessert}
          />
          </label>
          <div className="baseline" />
@@ -196,9 +162,9 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="drinks"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Drinks"
-            value={potluckForm.drinks}
+            value={values.drinks}
          />
          </label>
          <div className="baseline" />
@@ -207,20 +173,35 @@ const PotluckForm = (props) => {
          <input
             type="text"
             name="utensils"
-            onChange={changeHandler}
+            onChange={handleChanges}
             placeholder="Utensils"
-            value={potluckForm.utensils}
+            value={values.utensils}
          />
          </label>
          <div className="baseline" />
 
-        <button className="md-button form-button" disabled={buttonState}>Add Potluck</button>
+        <button 
+            className="md-button form-button"   
+            type='submit'>  
+            {props.state.current ? 'Update Potluck' : 'Add Potluck'}
+        </button>
+        {props.state.current && (
+         <div>
+            <button onClick={props.clearCurrent}>
+               Clear
+            </button>
+         </div>
+        )}
       </form>
     </FormWrapper>
   );
 };
 
-export default PotluckForm;
+const mapStateToProps = (state) => {
+   return {state}
+}
+
+export default connect(mapStateToProps, {temporaryAdd, temporaryEdit, setCurrent, clearCurrent})(PotluckForm);
 
 
 const FormWrapper = styled.div`
@@ -300,7 +281,7 @@ const FormWrapper = styled.div`
       position: relative;
       display: inline-block;
       box-sizing: border-box;
-      margin: 24px 0 ;  // FORM MARGIN
+      margin: 12px 0 ;  // FORM MARGIN
       border: none;
       border-radius: 2px;
       padding: 0 16px;
