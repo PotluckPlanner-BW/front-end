@@ -34,7 +34,9 @@ const PlantList = (props) => {
         ) : (  
          props.state.potlucks.map( item => {
             return (
-              <PotluckCard item={item}/>
+              <PotluckCard 
+                key={item.id}
+                item={item}/>
             )})
         )}
       </div>

@@ -4,10 +4,10 @@ import { Route } from "react-router-dom";
 import './App.css';
 import LoginForm from './components/user/login'
 import RegisterForm from './components/user/register'
-import PotluckForm from './components/display/PotluckForm'
-import PotluckCard from './components/display/PotluckCard'
-import PotluckDisplay from './components/display/PotluckDisplay'
-import Navigation from './components/display/Navigation'
+import PotluckForm from './components/dashboard/PotluckForm'
+import PotluckCard from './components/dashboard/PotluckCard'
+import PotluckDisplay from './components/dashboard/PotluckDisplay'
+import Navigation from './components/dashboard/Navigation'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
        <Navigation/>
        <Route exact path='/login' component={LoginForm}/>
        <Route exact path='/register' component={RegisterForm}/>
-       <Route exact path='/display' component={PotluckDisplay}/>
+       <Route exact path='/dashboard' component={PotluckDisplay}/>
     </div>
   );
 }

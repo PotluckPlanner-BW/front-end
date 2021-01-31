@@ -8,7 +8,7 @@ function Navigation() {
       <NavWrapper>
          <h1>Potluck Planner</h1>
          <div className="nav-links">
-            <NavLink exact to="/display"> Planner </NavLink>
+            <NavLink exact to="/dashboard"> Planner </NavLink>
             <NavLink exact to="/login"> Login </NavLink>
             <NavLink exact to="/register"> Register </NavLink>
          </div>
