@@ -336,7 +336,7 @@ const FormWrapper = styled.div`
 
       .form-wrapper {
          position: relative;
-         background-color:F3DCA3 ;
+         background-color: red ;
          height: 50vh;
          z-index: 1;
       }
