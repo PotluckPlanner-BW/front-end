@@ -1,12 +1,46 @@
 import React from 'react';
-import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { setCurrent, temporaryDelete } from '../../actions/index'
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { setCurrent, temporaryDelete } from '../../actions/index';
+import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 
 const PotluckCard = (props) => {
 
-   console.log("potluck card", props)
+   console.log("potluck card", props);
+   const history = useHistory();
+
+   // if (!props.items.length || !item) {
+   //    return <h2>Retrieving your potluck...</h2>;
+   // };
+
+
+   /*
+   TO REPLACE TEMPORARY EDIT - ALANNA
+
+   const updateHandler = () => {
+      history.push(``)
+   }
+   */
+
+
+   /*
+   TO REPLACE TEMPORARY DELETE - ALANNA
+
+   const deleteHandler = () => {
+      axios.delete(``)
+         .then( res => {
+            props.deleteItem(res.[data])
+            history.push('')//return user to specific page once successful
+         })
+         .catch( err => {
+            console.log(err);
+         })
+   }
+   
+   */
+
   return (
     <FormWrapper>
       <h3>{props.item.location}</h3>

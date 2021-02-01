@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { axiosWithAuth } from '../utils/AxiosWithAuth'
+import { axiosWithAuth } from '../utils/AxiosWithAuth';
 
 
 // JUST FOR TESTING FUNCTIONALITY BEFORE DATABASE CONNECTION
