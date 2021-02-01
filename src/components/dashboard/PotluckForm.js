@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import styled from 'styled-components'
-import { useForm } from '../../utils/useForm'
+import { useForm } from '../../utils/useForm';
+import axios from 'axios';
 
 // REDUX
 import { connect } from 'react-redux'
@@ -47,9 +48,15 @@ const PotluckForm = (props) => {
       e.preventDefault();
       if (props.state.current === null) {
          // ***** "ADD" ACTIONS/REDUX CODE HERE ***** ALANNA
+         /* 
+
+         */
          props.temporaryAdd(values)
       } else {
          // ***** "EDIT" ACTIONS/REDUX CODE HERE ***** ALANNA
+         /* 
+            
+         */
          props.temporaryEdit(values)
       }
       // RESET current in state
