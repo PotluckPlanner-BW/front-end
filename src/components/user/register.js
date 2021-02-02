@@ -6,6 +6,9 @@ import styled from 'styled-components'
 import * as yup from 'yup'
 
 //images
+//resoruces
+import bgImageDesktop from '../../images/login-bg-hero-desktop.svg';
+import breakpoint from '../../styles/breakpoints';
 import bgImage from '../../images/register-bg-hero.svg';
 
 const registerState = {
@@ -91,42 +94,44 @@ const RegisterForm = (props) => {
 
   return (
     <FormWrapper>
-      <h2>Registration</h2>
-      <form onSubmit={handleSubmit}>
+       <ImageDiv>
+         <img src={bgImage} alt=''/>
+      </ImageDiv>
+      <div>
+         <h2>Registration</h2>
+         <form onSubmit={handleSubmit}>
 
-        <label htmlFor="name">
-         <input
-            type="text"
-            name="username"
-            onChange={changeHandler}
-            placeholder="Name"
-            value={registerForm.username}
-         />
-         { ( errorForm.username.length > 0 ) 
-                  ? <p style={yupStyling}>{errorForm.username}</p> 
-                  : null }
-        </label>
-        <div className="baseline" />
-
-        <label htmlFor="password">
-         <input
-            type="password"
-            name="password"
-            onChange={changeHandler}
-            placeholder="Password"
-            value={registerForm.password}
-         />
-         { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
-        </label>
-        
+         <label htmlFor="name">
+            <input
+               type="text"
+               name="username"
+               onChange={changeHandler}
+               placeholder="Name"
+               value={registerForm.username}
+            />
+            { ( errorForm.username.length > 0 ) 
+                     ? <p style={yupStyling}>{errorForm.username}</p> 
+                     : null }
+         </label>
          <div className="baseline" />
 
-        <button className="md-button form-button" disabled={buttonState}>Register</button>
-        <Link className="register-link" to="/login">Already have an account?</Link>
-      </form>
-      <ImageDiv>
-      <img src={bgImage} alt=''/>
-      </ImageDiv>
+         <label htmlFor="password">
+            <input
+               type="password"
+               name="password"
+               onChange={changeHandler}
+               placeholder="Password"
+               value={registerForm.password}
+            />
+            { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
+         </label>
+         
+            <div className="baseline" />
+
+         <button className="md-button form-button" disabled={buttonState}>Register</button>
+         <Link className="register-link" to="/login">Already have an account?</Link>
+         </form>
+      </div>
     </FormWrapper>
   );
 };
@@ -144,8 +149,7 @@ const ImageDiv = styled.div`
 
 const FormWrapper = styled.div`
 
-   background: rgb(255,255,255);
-   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(223,182,112,1) 100%, rgba(0,212,255,1) 100%);
+   
    height: 85vh;
 
    form{

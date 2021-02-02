@@ -4,8 +4,26 @@ import { axiosWithAuth } from '../../utils/AxiosWithAuth'
 import styled from 'styled-components';
 import * as yup from 'yup';
 
+//React icons
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { BiUserCircle } from 'react-icons/bi';
+import { AiOutlineLock } from 'react-icons/ai';
+
+//resoruces
 import bgImage from '../../images/login-bg-hero.svg';
+import bgImageDesktop from '../../images/login-bg-hero-desktop.svg';
 import breakpoint from '../../styles/breakpoints';
+
+//color palette
+const colors = {
+   whitishBrown: 'F3DCA3',
+   lightBrown: 'DFB670',
+   brown: 'B77A3F',
+   mediumBrown: '8B5227',
+   darkBrown: '653819',
+   white: 'FFFFFF',
+   red: 'FF5757'
+}
 
 const loginState = {
   username: "",
@@ -89,44 +107,51 @@ const LoginForm = (props) => {
 
   return (
     <FormWrapper>
-      <div className='form-wrapper'>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-
-        <label htmlFor="name">
-         <input
-            type="text"
-            name="username"
-            onChange={changeHandler}
-            placeholder="Name"
-            value={userForm.username}
-         />
-         { ( errorForm.username.length > 0 ) 
-                  ? <p style={yupStyling}>{errorForm.username}</p> 
-                  : null }
-        </label>
-        <div className="baseline" />
-
-        <label htmlFor="password">
-         <input
-            type="password"
-            name="password"
-            onChange={changeHandler}
-            placeholder="Password"
-            value={userForm.password}
-         />
-         { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
-        </label>
-        
-         <div className="baseline" />
-
-        <button className="md-button form-button" disabled={buttonState}>Login</button>
-        <Link className="register-link" to="/register">Need to Register?</Link>
-      </form>
-      </div>
-      <ImageDiv>
+       <ImageDiv>
          <img src={bgImage} alt=''/>
       </ImageDiv>
+      <div className='form-wrapper'>
+         <div>
+            <h2>Login</h2>
+            <form onSubmit={handleSubmit}>
+
+            <label htmlFor="name">
+               <input
+                  type="text"
+                  name="username"
+                  onChange={changeHandler}
+                  placeholder='Name'
+                  value={userForm.username}
+               />
+               <BiUserCircle/>
+               { ( errorForm.username.length > 0 ) 
+                        ? <p style={yupStyling}>{errorForm.username}</p> 
+                        : null }
+            </label>
+            <div className="baseline" />
+
+            <label htmlFor="password">
+               <input
+                  type="password"
+                  name="password"
+                  onChange={changeHandler}
+                  placeholder="Password"
+                  value={userForm.password}
+               />
+               <AiOutlineLock/>
+               { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
+            </label>
+            
+               <div className="baseline" />
+
+            <button className="md-button form-button" disabled={buttonState}>Login <AiOutlineArrowRight /></button>
+            <Link className="register-link" to="/register">Need to Register?</Link>
+            </form>
+         </div>
+      </div>
+      <div className='desktop-hero-image'>
+      </div>
+      
     </FormWrapper>
   );
 };
@@ -139,17 +164,15 @@ const ImageDiv = styled.div`
       img {
          width: 200px;
       }
+
+      
    }
 
    @media only screen and ${breakpoint.device.desktop}{
       position: relative;
 
       img {
-         width: 500px;
-         z-index: 2;
-         position: absolute;
-         bottom: -450px;
-         right: 250px;
+         display: none;
       }
    }
    
@@ -158,13 +181,20 @@ const ImageDiv = styled.div`
 const FormWrapper = styled.div`
 
    @media only screen and ${breakpoint.device.mobile}{
-      background: rgb(255,255,255);
-      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(223,182,112,1) 100%, rgba(0,212,255,1) 100%);
-      height: 100vh;
+      background-color: #F7FAFB;
+      height: 82vh;
+      padding-top: 50px;
+
+      .desktop-hero-image {
+         display: none;
+      }
 
       form{
          margin: 0 auto;
          width: 300px;
+      }
+      h2 {
+         color: #22BEAD;
       }
       input{
          border: 0;
@@ -172,7 +202,7 @@ const FormWrapper = styled.div`
       }
       a{
          display: block;
-         color: #1c5d76;  
+         color: #22BEAD;  
          font-weight: bold; 
       }
       
@@ -180,18 +210,18 @@ const FormWrapper = styled.div`
       
       .baseline,
       input {
-         background-color: #fff;
-         font-size: 21px;
-         height: 50px;
+         background-color: ;
+         font-size: 16px;
+         height: 45px;
          width: 300px;
          padding: 0 8px;
-         color: #1c5d76;
+         color: #22BEAD;
       }
       .baseline {
          height: 3px;
          background-color: #dcdcdc;
       }
-
+//1c5d76
       /*********** Hover.css > Underline From Left > Modified *******************/
       .baseline {
          -webkit-transform: perspective(1px) translateZ(0);
@@ -246,7 +276,7 @@ const FormWrapper = styled.div`
          text-overflow: ellipsis;
          text-transform: uppercase;
          color: #fff;
-         background-color: #1c5d76;
+         background-color: #F6B394;
          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
             0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
          font-family: 'Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui,
@@ -331,14 +361,41 @@ const FormWrapper = styled.div`
       }
    }
 
+   @media only screen and ${breakpoint.device.tablet}{
+      background-color: ;
+
+      .form-wrapper{
+         margin: 0 auto;
+         width: 300px;
+      }
+
+      
+   }
+
    @media only screen and ${breakpoint.device.desktop}{
-      height: 92vh;
+      height: 95vh;
+      display: flex;
+      padding-top: 0px;
+
+      
+
+      .desktop-hero-image {
+         display: block;
+         width: 50%;
+         margin: auto;
+         background-color: #E8F3F3;
+         background-image: url(${bgImageDesktop});
+         height: 95vh; /* You must set a specified height */
+         background-position: center; /* Center the image */
+         background-repeat: repeat; /* Do not repeat the image */
+         background-size: cover; /
+         height: 90vh;
+      }
 
       .form-wrapper {
-         position: relative;
-         background-color: red ;
-         height: 50vh;
-         z-index: 1;
+         width: 50%;
+         display: grid;
+         place-items: center;
       }
    }
    
