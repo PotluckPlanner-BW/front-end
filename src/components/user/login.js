@@ -112,7 +112,7 @@ const LoginForm = (props) => {
       </ImageDiv>
       <div className='form-wrapper'>
          <div>
-            <h2>Login</h2>
+            <h2>Welcome back!</h2>
             <form onSubmit={handleSubmit}>
 
             <label htmlFor="name">
@@ -123,7 +123,7 @@ const LoginForm = (props) => {
                   placeholder='Name'
                   value={userForm.username}
                />
-               <BiUserCircle/>
+               {/* <BiUserCircle/> */}
                { ( errorForm.username.length > 0 ) 
                         ? <p style={yupStyling}>{errorForm.username}</p> 
                         : null }
@@ -138,7 +138,7 @@ const LoginForm = (props) => {
                   placeholder="Password"
                   value={userForm.password}
                />
-               <AiOutlineLock/>
+               {/* <AiOutlineLock/> */}
                { (errorForm.password.length > 0) ? <p style={yupStyling}>{errorForm.password}</p> : null }
             </label>
             
@@ -149,8 +149,7 @@ const LoginForm = (props) => {
             </form>
          </div>
       </div>
-      <div className='desktop-hero-image'>
-      </div>
+      <div className='desktop-hero-image'></div>
       
     </FormWrapper>
   );
@@ -210,7 +209,7 @@ const FormWrapper = styled.div`
       
       .baseline,
       input {
-         background-color: ;
+         background-color: #fff ;
          font-size: 16px;
          height: 45px;
          width: 300px;
@@ -358,6 +357,11 @@ const FormWrapper = styled.div`
 
       button:disabled::after {
          opacity: 0;
+      }
+
+      .register-link{
+         color: #22BEAD;
+         text-decoration: none;
       }
    }
 
