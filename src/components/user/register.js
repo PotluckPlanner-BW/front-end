@@ -7,7 +7,7 @@ import * as yup from 'yup'
 
 //images
 //resoruces
-import bgImageDesktop from '../../images/login-bg-hero-desktop.svg';
+import bgImageDesktop from '../../images/register-bg-hero-desktop.svg';
 import breakpoint from '../../styles/breakpoints';
 import bgImage from '../../images/register-bg-hero.svg';
 
