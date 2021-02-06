@@ -21,7 +21,7 @@ const PotluckDisplay = (props) => {
       <div className='card-display'>
         <h2>List of Potlucks</h2>
         { !props.state.potlucks ? (
-          <h2>Plants are loading...</h2>
+          <h2>Potlucks are loading...</h2>
         ) : (  
          props.state.potlucks.map( item => {
             return (

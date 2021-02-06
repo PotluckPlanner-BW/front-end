@@ -78,7 +78,8 @@ const RegisterForm = (props) => {
       e.preventDefault();
    
       axiosWithAuth().post("users/register", registerForm)
-      .then((res) => {            
+      .then((res) => {      
+         console.log("RESULT IN REGISTER: ", res)      
          window.localStorage.setItem("token", res.data.token);
          push("/dashboard");
       })
