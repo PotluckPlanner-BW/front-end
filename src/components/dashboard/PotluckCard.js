@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { setCurrent, temporaryDelete } from '../../actions/index';
+import { setCurrent, deletePotluck } from '../../actions/index';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
@@ -15,7 +15,6 @@ const PotluckCard = (props) => {
    //    return <h2>Retrieving your potluck...</h2>;
    // };
 
-
    /*
    TO REPLACE TEMPORARY EDIT - ALANNA
 
@@ -23,7 +22,6 @@ const PotluckCard = (props) => {
       history.push(``)
    }
    */
-
 
    /*
    TO REPLACE TEMPORARY DELETE - ALANNA
@@ -61,7 +59,7 @@ const PotluckCard = (props) => {
       </ItemDisplay>
       <div>
         <button onClick={() => props.setCurrent(props.item)}>Edit</button>
-        <button onClick={() => props.temporaryDelete(props.item.id)}>Delete</button>
+        <button onClick={() => props.deletePotluck(props.item.id)}>Delete</button>
       </div>
 
     </FormWrapper>
@@ -69,7 +67,7 @@ const PotluckCard = (props) => {
 };
 
 
-export default connect(null,{setCurrent, temporaryDelete})(PotluckCard);
+export default connect( null, { setCurrent, deletePotluck } )(PotluckCard);
 
 const FormWrapper = styled.div`
    border-radius: 25px;

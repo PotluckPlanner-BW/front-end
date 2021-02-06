@@ -7,8 +7,10 @@ import axios from 'axios';
 // REDUX
 import { connect } from 'react-redux'
 import { 
-   temporaryAdd,
-   temporaryEdit, 
+   // temporaryAdd,
+   // temporaryEdit, 
+   addPotluck,
+   editPotluck,
    setCurrent, 
    clearCurrent } from '../../actions/index'
 
@@ -46,22 +48,15 @@ const PotluckForm = (props) => {
 
   const handleSubmit = (e) => {
       e.preventDefault();
+      // DETERMINE WHETHER ITS AN ADD OR EDIT FORM
       if (props.state.current === null) {
-         // ***** "ADD" ACTIONS/REDUX CODE HERE ***** ALANNA
-         /* 
-
-         */
-         props.temporaryAdd(values)
+         props.addPotluck(values)
       } else {
-         // ***** "EDIT" ACTIONS/REDUX CODE HERE ***** ALANNA
-         /* 
-            
-         */
-         props.temporaryEdit(values)
+         props.editPotluck(values)
       }
       // RESET current in state
       props.clearCurrent();
-      // RESET FORM
+      // RESET form
       setValues(initialFormState)
       
   };
@@ -208,7 +203,9 @@ const mapStateToProps = (state) => {
    return {state}
 }
 
-export default connect(mapStateToProps, {temporaryAdd, temporaryEdit, setCurrent, clearCurrent})(PotluckForm);
+export default connect(
+   mapStateToProps, 
+   { addPotluck, editPotluck, setCurrent, clearCurrent })(PotluckForm);
 
 
 const FormWrapper = styled.div`

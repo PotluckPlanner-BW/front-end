@@ -77,10 +77,10 @@ const RegisterForm = (props) => {
   const handleSubmit = (e) => {
       e.preventDefault();
    
-      axiosWithAuth().post("/register", registerForm)
+      axiosWithAuth().post("users/register", registerForm)
       .then((res) => {            
-         window.localStorage.setItem("token", res.data.payload);
-         push("/foo-bar");
+         window.localStorage.setItem("token", res.data.token);
+         push("/dashboard");
       })
       .catch((err) => console.log(err));
   };

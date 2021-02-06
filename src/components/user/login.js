@@ -90,10 +90,10 @@ const LoginForm = (props) => {
   const handleSubmit = (e) => {
       e.preventDefault();
       
-      axiosWithAuth().post("/login", userForm)
-      .then((res) => {            
-         window.localStorage.setItem("token", res.data.payload);
-         push("/foo-bar");
+      axiosWithAuth().post("/users/login", userForm)
+      .then((res) => {         
+         window.localStorage.setItem("token", res.data.token);
+         push("/dashboard");
       })
       .catch((err) => console.log(err));
   };

@@ -1,9 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { getPotlucks } from '../../actions/index'
 //import { CSSTransition, TransitionGroup } from 'react-transition-group';
-
-// Context
-// import PlantContext from '../../context/plant/plantContext';
-// import AuthContext from '../../context/auth/authContext';
 
 // Components
 import PotluckCard from './PotluckCard';
@@ -12,17 +9,11 @@ import styled from 'styled-components'
 
 import { connect } from 'react-redux'
 
-const PlantList = (props) => {
-//   const plantContext = useContext(PlantContext);
-//   const authContext = useContext(AuthContext);
+const PotluckDisplay = (props) => {
 
-//   const { plants, getPlants, loading } = plantContext;
-//   const { user } = authContext;
-
-//   useEffect(() => {
-//     getPlants(user.userId);
-//     // eslint-disable-next-line
-//   }, []);
+   useEffect( () => {
+      props.getPotlucks()
+   },[])
 
   return (
     <DisplayWrapper>
@@ -48,7 +39,7 @@ const mapStateToProps = (state) => {
    return { state }
 }
 
-export default connect(mapStateToProps, {})(PlantList);
+export default connect(mapStateToProps, {getPotlucks})(PotluckDisplay);
 
 const DisplayWrapper = styled.div`
    display:flex;
