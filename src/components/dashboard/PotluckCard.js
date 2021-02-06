@@ -72,6 +72,7 @@ const PotluckCard = (props) => {
 export default connect(null,{setCurrent, temporaryDelete})(PotluckCard);
 
 const FormWrapper = styled.div`
+   border-radius: 25px;
    border: 1px solid gray;
    box-shadow: 3px 3px 5px gray;
    width: 80%;

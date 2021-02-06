@@ -7,7 +7,7 @@ import * as yup from 'yup'
 
 //images
 //resoruces
-import bgImageDesktop from '../../images/login-bg-hero-desktop.svg';
+import bgImageDesktop from '../../images/register-bg-hero-desktop.svg';
 import breakpoint from '../../styles/breakpoints';
 import bgImage from '../../images/register-bg-hero.svg';
 
@@ -97,8 +97,9 @@ const RegisterForm = (props) => {
        <ImageDiv>
          <img src={bgImage} alt=''/>
       </ImageDiv>
-      <div>
-         <h2>Registration</h2>
+      <div className='form-wrapper'>
+         <div>
+         <h2>Register for an account.</h2>
          <form onSubmit={handleSubmit}>
 
          <label htmlFor="name">
@@ -131,7 +132,9 @@ const RegisterForm = (props) => {
          <button className="md-button form-button" disabled={buttonState}>Register</button>
          <Link className="register-link" to="/login">Already have an account?</Link>
          </form>
+         </div>
       </div>
+      <div className='desktop-hero-image'></div>
     </FormWrapper>
   );
 };
@@ -145,16 +148,30 @@ const ImageDiv = styled.div`
    img {
       width: 200px;
    }
+
+   @media only screen and ${breakpoint.device.desktop}{
+      position: relative;
+
+      img {
+         display: none;
+      }
+   }
 `;
 
 const FormWrapper = styled.div`
 
-   
+@media only screen and ${breakpoint.device.mobile}{
+   background-color: #F7FAFB;
+   height: 82vh;
+   padding-top: 50px;
    height: 85vh;
 
    form{
       margin: 0 auto;
       width: 300px;
+   }
+   h2 {
+      color: #22BEAD;
    }
    input{
       border: 0;
@@ -171,11 +188,11 @@ const FormWrapper = styled.div`
    .baseline,
    input {
       background-color: #fff;
-      font-size: 21px;
-      height: 50px;
+      font-size: 16px;
+      height: 45px;
       width: 300px;
       padding: 0 8px;
-      color: #1c5d76;
+      color: #22BEAD;
    }
    .baseline {
       height: 3px;
@@ -236,7 +253,7 @@ const FormWrapper = styled.div`
       text-overflow: ellipsis;
       text-transform: uppercase;
       color: #fff;
-      background-color: #1c5d76;
+      background-color: #F6B394;
       box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
          0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
       font-family: 'Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui,
@@ -320,4 +337,36 @@ const FormWrapper = styled.div`
       opacity: 0;
    }
 
+   .register-link{
+      color: #22BEAD;
+      text-decoration: none;
+   }
+}
+
+@media only screen and ${breakpoint.device.desktop}{
+   height: 95vh;
+   display: flex;
+   padding-top: 0px;
+
+   
+
+   .desktop-hero-image {
+      display: block;
+      width: 50%;
+      margin: auto;
+      background-color: #E8F3F3;
+      background-image: url(${bgImageDesktop});
+      height: 95vh; /* You must set a specified height */
+      background-position: center; /* Center the image */
+      background-repeat: repeat; /* Do not repeat the image */
+      background-size: cover; /
+      height: 90vh;
+   }
+
+   .form-wrapper {
+      width: 50%;
+      display: grid;
+      place-items: center;
+   }
+}
 `;
