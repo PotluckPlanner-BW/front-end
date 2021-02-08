@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from '../breakpoint';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 //images
 import companies from '../images/companies.svg'
@@ -9,6 +10,7 @@ import hero from '../images/hero.svg';
 import iconOne from '../images/icon-one.svg';
 import iconTwo from '../images/icon-two.svg';
 import iconThree from '../images/icon-three.svg';
+import actionImage from '../images/action-image.svg';
 
 //
 const services = [
@@ -63,7 +65,7 @@ const Landing = () => {
                     <h5>Trusted By</h5>
                     <img src={companies} alt='complany logos' className='companies-mobile'/>
                     <div>
-                        <p>Thousands of users already add more effiency to their events with Potluck Planner.</p>
+                        <p>Thousands of users have already added more effiency to their event planning with Potluck Planner.</p>
                         <Link to='/'><button>See More</button></Link>
                     </div>
                     <img src={companies} alt='complany logos' className='companies-desktop'/>
@@ -71,16 +73,34 @@ const Landing = () => {
                 
             </div>
 
-            {services.map(item => {
-                return (
-                    <div key={item.id} className='service-card'>
-                        <img src={item.icon} alt='icon' className='icons'/>
-                        <h6>{item.title}</h6>
-                        <p>{item.description}</p>
-                        <button>{item.cta}</button>
+            <div className='service-card-wrapper'>
+
+                {services.map(item => {
+                    return (
+                        <div key={item.id} className='service-card'>
+                            <img src={item.icon} alt='icon' className='icons'/>
+                            <h6>{item.title}</h6>
+                            <p>{item.description}</p>
+                            <button>{item.cta}</button>
+                        </div>
+                    )
+                })}
+            </div>
+
+            <div className='action-section'>
+                <div className='action'>
+                    <div>
+                        <h6>What's Stopping You?</h6>
+                        <p>Plan your next big event with Potluck Planner. Curabitur ac tincidunt mauris, ut tempor ante.</p>
+                        <button>Get Started</button>
                     </div>
-                )
-            })}
+                    
+                </div>
+                <div>
+                    <img src={actionImage} alt='woman eating burger'/>
+                </div>
+            </div>
+            <Footer/>
         </Wrapper>
     )
 }
@@ -138,33 +158,49 @@ const Wrapper = styled.section`
     }
 
     .companies-mobile {
-        width 200px;
+        width: 320px;
+        padding: 10px 0;
     }
 
     .highlight {
         background-color: #F4F3F3;
-        height: 50vh;
+        padding: 80px 0;
         display: grid;
         place-items: center;
 
     }
-    .highlight img {
-        width: 100%;
-    }
 
     .highlight h5 {
-        
+        margin: 0;
+        font-size: 20px;
+        padding-bottom: 20px;
     }
 
     .highlight p {
         font-size: 15px;
         font-weight: 400;
+        line-height: 22px;
+        margin: 20px 40px 20px 40px;
+    }
+
+    .highlight button {
+        background-color: #88BA89;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
     }
 
     .icons {
         width: 80px;
     }
+
+    .service-card-wrapper {
+        background-color: #F8ECE2;
+        padding: 80px 0;
+    }
     .service-card {
+        background-color: white;
         border-radius: 20px;
         padding: 35px 0;
         margin: 0 40px 40px 40px;
@@ -173,6 +209,7 @@ const Wrapper = styled.section`
     }
 
     .service-card button {
+        background-color: #F8ECE2;
         padding: 10px 20px;
         border: none;
         border-radius: 25px;
@@ -187,8 +224,42 @@ const Wrapper = styled.section`
     .service-card p {
         margin: 0;
         padding: 0 30px 30px 30px;
+        line-height: 22px;
+    }
+    
+    .action-section {
+        padding: 80px 0;
     }
 
+    .action-section p {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 22px;
+        margin: 20px 40px 20px 40px;
+    }
+
+    .action {
+        display: grid;
+        place-items: center;
+    }
+
+    .action-section h6 {
+        font-size: 17px;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .action-section button {
+        background-color: #88BA89;
+        color: white;
+        padding: 10px 20px;
+        margin-bottom: 30px;
+        border: none;
+        border-radius: 25px;
+    }
+    .action-section img {
+        width: 250px;
+    }
     @media only screen and ${breakpoint.device.tablet} {
 
         .left-side-mobile {
