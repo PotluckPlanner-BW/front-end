@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import breakpoint from '../../breakpoint';
 //import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // Context
@@ -26,6 +27,7 @@ const PlantList = (props) => {
 
   return (
     <DisplayWrapper>
+      
       <PotluckForm/>
       <div className='card-display'>
         <h2>List of Potlucks</h2>
@@ -51,15 +53,26 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {})(PlantList);
 
 const DisplayWrapper = styled.div`
-   display:flex;
+   ///display:flex;
 
    // **styles for <PotluckForm/> with the component file
    
    .form-display{
-      width:50%;
    }
 
    .card-display{
-      width:50%;
    }
+
+    @media only screen and ${breakpoint.device.tablet} {
+        //background-color: yellow;
+
+
+    }
+
+    @media only screen and ${breakpoint.device.desktop} {
+        //background-color: red;
+       display: flex;
+
+    }
+    
 `;

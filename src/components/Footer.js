@@ -8,21 +8,21 @@ const Footer = () => {
             <div className='footer-container'>
                 <div>
                     <h6>Careers</h6>
-                    <p>Bibendum Turpis</p>
-                    <p>Bibendum </p>
-                    <p>Bibendum Sendum</p>
-                    <p>Bibendum Da</p>
+                    <p>Why Potluck Planner</p>
+                    <p>Learn </p>
+                    <p>Pricing</p>
+                    <p>Follow Us</p>
                 </div>
                 <div>
                     <h6>Contact</h6>
-                    <p>Bibendum</p>
-                    <p>Bibendum Turpis</p>
+                    <p>Design</p>
+                    <p>Technology</p>
                 </div>
                 <div>
                     <h6>Legal</h6>
-                    <p>Bibendum Turpis</p>
-                    <p>Bibendum Turpis</p>
-                    <p>Bibendum Turpis</p>
+                    <p>Terms + Condition</p>
+                    <p>Privacy Policy</p>
+                    <p>Cookies</p>
                 </div>
             </div>
             

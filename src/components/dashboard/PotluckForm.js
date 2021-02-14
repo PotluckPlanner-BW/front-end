@@ -212,8 +212,8 @@ export default connect(mapStateToProps, {temporaryAdd, temporaryEdit, setCurrent
 
 
 const FormWrapper = styled.div`
-   background-color: #22BEAD;
-   width: 50%;
+   //background-color: #22BEAD;
+   width: 100%;
 
    form{
       margin: 0 auto;
