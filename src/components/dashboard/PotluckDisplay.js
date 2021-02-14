@@ -9,9 +9,9 @@ import breakpoint from '../../breakpoint';
 // Components
 import PotluckCard from './PotluckCard';
 import PotluckForm from './PotluckForm';
-import styled from 'styled-components'
-
+import styled from 'styled-components';
 import { connect } from 'react-redux'
+import Footer from '../Footer';
 
 const PlantList = (props) => {
 //   const plantContext = useContext(PlantContext);
@@ -26,13 +26,17 @@ const PlantList = (props) => {
 //   }, []);
 
   return (
+    <div>
+
+    
     <DisplayWrapper>
       
       <PotluckForm/>
       <div className='card-display'>
-        <h2>List of Potlucks</h2>
+        
+        <h2>My Potlucks</h2>
         { !props.state.potlucks ? (
-          <h2>Plants are loading...</h2>
+          <h2>Potlucks are loading...</h2>
         ) : (  
          props.state.potlucks.map( item => {
             return (
@@ -43,6 +47,8 @@ const PlantList = (props) => {
         )}
       </div>
     </DisplayWrapper>
+    <Footer/>
+    </div>
   );
 };
 
@@ -53,14 +59,15 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {})(PlantList);
 
 const DisplayWrapper = styled.div`
-   ///display:flex;
-
    // **styles for <PotluckForm/> with the component file
+
    
    .form-display{
    }
 
    .card-display{
+     background-color: #F4F3F3;
+     padding: 50px 0;
    }
 
     @media only screen and ${breakpoint.device.tablet} {

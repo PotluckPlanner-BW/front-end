@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import styled from 'styled-components'
 import { useForm } from '../../utils/useForm';
 import axios from 'axios';
+import dashboardHero from '../../images/dashboard-hero.svg'
 
 // REDUX
 import { connect } from 'react-redux'
@@ -74,6 +75,14 @@ const PotluckForm = (props) => {
 
   return (
     <FormWrapper>
+       <div className='display-hero'>
+          <div>
+            <p className='mobile-text'>It's a beautiful day <br/>to plan a new dish</p>
+          </div>
+          <div>
+             <img src={dashboardHero} alt='dashboard her' className='dash-hero'/>
+          </div>
+        </div>
       <h2>{props.state.current ? 'Edit Potluck' : 'Create Potluck'}</h2>
       <form onSubmit={handleSubmit}>
 
@@ -214,6 +223,15 @@ export default connect(mapStateToProps, {temporaryAdd, temporaryEdit, setCurrent
 const FormWrapper = styled.div`
    //background-color: #22BEAD;
    width: 100%;
+   padding-bottom: 50px;
+
+   .display-hero {
+      background-color: #F4F3F3;
+      padding: 40px 0;
+   }
+   .dash-hero {
+      width: 40%;
+   }
 
    form{
       margin: 0 auto;

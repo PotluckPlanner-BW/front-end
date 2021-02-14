@@ -73,11 +73,12 @@ export default connect(null,{setCurrent, temporaryDelete})(PotluckCard);
 
 const FormWrapper = styled.div`
    border-radius: 25px;
-   border: 1px solid gray;
    box-shadow: 3px 3px 5px gray;
+   background-color: white;
    width: 80%;
    margin: 10px auto;
    padding: 10px;
+   margin-bottom: 50px;
 
    button{
       padding:  5px 10px;
