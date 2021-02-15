@@ -22,9 +22,10 @@ function App() {
         <NavigationWrapper>
           <NavLink to='/'><img src={logo} alt='Company logo' className='nav__logo'/></NavLink>
           <div className="nav-links">
-              <StyledLink exact to="/dashboard" className='nav__link' style={{ textDecoration: 'none' }}> Planner </StyledLink>
-              <StyledLink exact to="/login" className='nav__link' style={{ textDecoration: 'none' }}> Login </StyledLink>
-              <StyledLink exact to="/register" className='nav__link' style={{ textDecoration: 'none' }}> Register </StyledLink>
+              <StyledLink exact to="/dashboard" className='nav__link'>Planner</StyledLink>
+              <StyledLink exact to="/about" className='nav__link'>About</StyledLink>
+              <StyledLink exact to="/login" className='nav__link'>Login</StyledLink>
+              <StyledLink exact to="/register" className='nav__link'><button>Register</button></StyledLink>
           </div>
         </NavigationWrapper>
       </header>
@@ -45,6 +46,20 @@ export default App;
 const NavigationWrapper = styled.nav`
    
   padding: 15px 15px;
+  button {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: #10282A;
+    color: #FFF4E6;
+    transition: 0.5s;
+  }
+
+  button:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: #1c4447;
+  }
   
 
     @media only screen and ${breakpoint.device.tablet} {
@@ -65,4 +80,8 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: #10282A;
   padding: 0 5px;
+
+  @media only screen and ${breakpoint.device.tablet} {
+    padding-left: 40px;
+  }
 `;

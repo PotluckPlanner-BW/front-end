@@ -75,6 +75,7 @@ const DisplayWrapper = styled.div`
      background-color: #FFF4E6;
      border-radius: 25px;
      padding: 50px 0;
+     margin: 20px 0 150px 0;
    }
 
     @media only screen and ${breakpoint.device.tablet} {
@@ -84,7 +85,7 @@ const DisplayWrapper = styled.div`
 
        .card-display {
          width: 50%;
-         margin-left: 10px;
+         margin: 0 0 150px 10px;
          
        }
 

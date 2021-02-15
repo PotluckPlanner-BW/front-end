@@ -48,7 +48,7 @@ const Landing = () => {
                 </div>
                 <div className='right-side'>
                     <div>
-                        <h1>Transform your ordinary<br/> <span>food list into a digital one</span></h1>
+                        <h1>Transform your ordinary<br/> <span>planner into a digital one</span></h1>
 
                         <p>Your meal planning in one place. Track your list. Invite guests. Keep it simple.</p>
 
@@ -66,17 +66,18 @@ const Landing = () => {
             </div>
 
             <div className='highlight'>
-                <div>
+
+                <div className='trusted-by'>
                     <h5>Trusted By</h5>
                     <img src={companies} alt='complany logos' className='companies-mobile'/>
                     <div>
-                        <p>Thousands of users have already added more effiency to their event planning with Potluck Planner.</p>
+                        <p>Thousands of users have already added more effiency to their event planning with Potluck Planner. Get your account set up today!</p>
                         <Link to='/'><button>See More</button></Link>
                     </div>
                 </div>
-                <div>
-                <img src={companies} alt='complany logos' className='companies-desktop'/>
 
+                <div className='company-logos'>
+                    <img src={companies} alt='complany logos' className='companies-desktop'/>
                 </div>
                 
             </div>
@@ -171,7 +172,7 @@ const Wrapper = styled.section`
     }
 
     .hero-btn {
-        padding: 10px 20px;
+        padding: 10px 50px;
         border: none;
         border-radius: 0 25px 25px 25px;
         background-color: #88BA89;
@@ -224,12 +225,12 @@ const Wrapper = styled.section`
         padding: 80px 20px;
     }
     .service-card {
-        background-color: #10282A;
+        background-color: #FFF;
         border-radius: 20px;
         padding: 35px 0;
         margin: 0 60px 40px 60px;
-        -webkit-box-shadow: 5px 5px 15px 5px #10282A; 
-        box-shadow: 5px 5px 15px 5px #10282A;
+        -webkit-box-shadow: 5px 5px 15px 5px #e8e6e6; 
+        box-shadow: 5px 5px 15px 5px #e8e6e6;
     }
 
     .service-card button {
@@ -241,7 +242,7 @@ const Wrapper = styled.section`
 
     .service-card h6 {
         font-size: 17px;
-        color: #F8ECE2;
+        color: #10282A;
         margin: 0;
         padding: 10px 0;
     }
@@ -249,19 +250,13 @@ const Wrapper = styled.section`
     .service-card p {
         margin: 0;
         padding: 0 30px 30px 30px;
-        color: #F8ECE2;
+        color: #10282A;
         line-height: 22px;
     }
     
     .action-section {
         padding: 80px 0;
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f8ece2+0,ffffff+100 */
-background: #f8ece2; /* Old browsers */
-background: -moz-linear-gradient(top,  #f8ece2 0%, #ffffff 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #f8ece2 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #f8ece2 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8ece2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-
+        background-color: #F4F3F3;
     }
 
     .action-section p {
@@ -375,6 +370,39 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8ece2', end
 
         .action-info {
             width: 60%;
+        }
+        .companies-mobile {
+            display: none;
+        }
+        .companies-desktop {
+            display: block;
+        }
+
+        .highlight {
+            display: flex;
+            justify-content: space-around;
+            padding: 150px 50px;
+        }
+
+        .highlight h5, .highlight p {
+            margin: 0;
+            padding-bottom: 20px;
+        }
+
+        .highlight p {
+            margin: 0 50px;
+        }
+
+        .highlight img {
+            width: 100%;
+        }
+
+        .trusted-by {
+            width: 50%;
+        }
+
+        .company-logos {
+            width: 50%;
         }
 
     }
