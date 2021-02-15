@@ -3,7 +3,8 @@ import { useHistory, Link } from "react-router-dom";
 import styled from 'styled-components'
 import { useForm } from '../../utils/useForm';
 import axios from 'axios';
-import dashboardHero from '../../images/dashboard-hero.svg'
+import dashboardHero from '../../images/dashboard-hero.svg';
+import breakpoint from '../../breakpoint';
 
 // REDUX
 import { connect } from 'react-redux'
@@ -75,15 +76,7 @@ const PotluckForm = (props) => {
 
   return (
     <FormWrapper>
-       <div className='display-hero'>
-          <div>
-            <p className='mobile-text'>It's a beautiful day <br/>to plan a new dish</p>
-          </div>
-          <div>
-             <img src={dashboardHero} alt='dashboard her' className='dash-hero'/>
-          </div>
-        </div>
-      <h2>{props.state.current ? 'Edit Potluck' : 'Create Potluck'}</h2>
+      <h2>{props.state.current ? 'Edit Potluck' : 'Create New Potluck'}</h2>
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="location">
@@ -221,16 +214,16 @@ export default connect(mapStateToProps, {temporaryAdd, temporaryEdit, setCurrent
 
 
 const FormWrapper = styled.div`
-   //background-color: #22BEAD;
+   background-color: #88BA89;
+   border-radius: 25px;
+   margin: 0 20px;
    width: 100%;
    padding-bottom: 50px;
-
-   .display-hero {
-      background-color: #F4F3F3;
-      padding: 40px 0;
-   }
-   .dash-hero {
-      width: 40%;
+   height: 85vh;
+   
+   h2 {
+      padding-top: 50px;
+      color: #10282A;
    }
 
    form{
@@ -240,28 +233,26 @@ const FormWrapper = styled.div`
       border: 0;
       outline: none;
    }
-   a{
+   a {
       display: block;
       color: #1c5d76;  
-      font-weight: bold; 
    }
    
    // BASELINE CLASS=========================================================
    
    .baseline,
    input {
-      background-color: #fff;
+      background-color: #88BA89;
       font-size: 16px;
-      height: 30px;
-      width: 300px;
-      font-weight: 900;
-      padding: 0 8px;
-      color: #1c5d76;
+      font-weight: 300;
+      height: 35px;
+      width: 250px;
+      color: #FFF4E6;
       margin: 0 auto;
    }
    .baseline {
-      height: 3px;
-      background-color: #dcdcdc;
+      height: 1px;
+      background-color: #10282A;
    }
 
    /*********** Hover.css > Underline From Left > Modified *******************/
@@ -307,18 +298,18 @@ const FormWrapper = styled.div`
       position: relative;
       display: inline-block;
       box-sizing: border-box;
-      margin: 12px 0 ;  // FORM MARGIN
+      margin-top: 50px ;  // FORM MARGIN
       border: none;
-      border-radius: 2px;
+      border-radius: 25px;
       padding: 0 16px;
       min-width: 64px;
-      height: 36px;
+      height: 40px;
       vertical-align: middle;
       text-align: center;
       text-overflow: ellipsis;
       text-transform: uppercase;
       color: #fff;
-      background-color: #1c5d76;
+      background-color: #10282A;
       box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
          0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
       font-family: 'Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui,
@@ -401,5 +392,20 @@ const FormWrapper = styled.div`
    button:disabled::after {
       opacity: 0;
    }
+
+   @media only screen and ${breakpoint.device.tablet} {
+      //background-color: yellow;
+
+
+
+  }
+
+  @media only screen and ${breakpoint.device.desktop} {
+      //background-color: red;
+      width: 35%;
+      
+
+  }
+  
 
 `;

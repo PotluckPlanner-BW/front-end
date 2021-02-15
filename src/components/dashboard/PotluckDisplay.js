@@ -12,6 +12,7 @@ import PotluckForm from './PotluckForm';
 import styled from 'styled-components';
 import { connect } from 'react-redux'
 import Footer from '../Footer';
+import DashboardPlanner from './DashboardBanner';
 
 const PlantList = (props) => {
 //   const plantContext = useContext(PlantContext);
@@ -28,13 +29,13 @@ const PlantList = (props) => {
   return (
     <div>
 
-    
+    <DashboardPlanner/>
     <DisplayWrapper>
       
       <PotluckForm/>
       <div className='card-display'>
         
-        <h2>My Potlucks</h2>
+        <h2 className="my-potluck">My Potlucks</h2>
         { !props.state.potlucks ? (
           <h2>Potlucks are loading...</h2>
         ) : (  
@@ -60,13 +61,19 @@ export default connect(mapStateToProps, {})(PlantList);
 
 const DisplayWrapper = styled.div`
    // **styles for <PotluckForm/> with the component file
+    margin-right: 20px;
 
+    .my-potluck {
+      color: #10282A;
+    }
+    
    
    .form-display{
    }
 
    .card-display{
-     background-color: #F4F3F3;
+     background-color: #FFF4E6;
+     border-radius: 25px;
      padding: 50px 0;
    }
 
@@ -79,6 +86,11 @@ const DisplayWrapper = styled.div`
     @media only screen and ${breakpoint.device.desktop} {
         //background-color: red;
        display: flex;
+
+       .card-display {
+         width: 65%;
+         
+       }
 
     }
     

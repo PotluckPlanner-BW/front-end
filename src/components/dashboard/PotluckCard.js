@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setCurrent, temporaryDelete } from '../../actions/index';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import breakpoint from '../../breakpoint';
 
 
 const PotluckCard = (props) => {
@@ -60,8 +61,8 @@ const PotluckCard = (props) => {
          </div>
       </ItemDisplay>
       <div>
-        <button onClick={() => props.setCurrent(props.item)}>Edit</button>
-        <button onClick={() => props.temporaryDelete(props.item.id)}>Delete</button>
+        <button className='edit' onClick={() => props.setCurrent(props.item)}>Edit</button>
+        <button className='delete' onClick={() => props.temporaryDelete(props.item.id)}>Delete</button>
       </div>
 
     </FormWrapper>
@@ -74,15 +75,30 @@ export default connect(null,{setCurrent, temporaryDelete})(PotluckCard);
 const FormWrapper = styled.div`
    border-radius: 25px;
    box-shadow: 3px 3px 5px gray;
-   background-color: white;
+   background-color: #F76C61;
    width: 80%;
    margin: 10px auto;
    padding: 10px;
    margin-bottom: 50px;
+   
 
-   button{
-      padding:  5px 10px;
-      margin: 0 3px;
+   button {
+      padding:  15px 30px;
+      border-radius: 25px;
+      border: none;
+      margin: 20px 15px;
+   }
+
+   .delete {
+      background-color: crimson;
+      color: #FFF;
+   }
+   @media only screen and ${breakpoint.device.tablet} {
+      //background-color: yellow;
+   }
+
+   @media only screen and ${breakpoint.device.desktop} {
+      //background-color: red;
    }
 `;
 

@@ -45,6 +45,7 @@ export default App;
 const NavigationWrapper = styled.nav`
    
   padding: 15px 15px;
+  
 
     @media only screen and ${breakpoint.device.tablet} {
         //background-color: yellow;
