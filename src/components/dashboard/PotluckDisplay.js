@@ -61,7 +61,7 @@ export default connect(mapStateToProps, {})(PlantList);
 
 const DisplayWrapper = styled.div`
    // **styles for <PotluckForm/> with the component file
-    margin-right: 20px;
+    margin: 20px;
 
     .my-potluck {
       color: #10282A;
@@ -79,6 +79,14 @@ const DisplayWrapper = styled.div`
 
     @media only screen and ${breakpoint.device.tablet} {
         //background-color: yellow;
+        display: flex;
+             
+
+       .card-display {
+         width: 50%;
+         margin-left: 10px;
+         
+       }
 
 
     }
@@ -86,9 +94,11 @@ const DisplayWrapper = styled.div`
     @media only screen and ${breakpoint.device.desktop} {
         //background-color: red;
        display: flex;
+             
 
        .card-display {
          width: 65%;
+         margin-left: 10px;
          
        }
 

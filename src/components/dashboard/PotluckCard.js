@@ -75,7 +75,7 @@ export default connect(null,{setCurrent, temporaryDelete})(PotluckCard);
 const FormWrapper = styled.div`
    border-radius: 25px;
    box-shadow: 3px 3px 5px gray;
-   background-color: #F76C61;
+   background-color: #FFF;
    width: 80%;
    margin: 10px auto;
    padding: 10px;
@@ -89,6 +89,9 @@ const FormWrapper = styled.div`
       margin: 20px 15px;
    }
 
+   .edit {
+      background-color: #FFF4E6;
+   }
    .delete {
       background-color: crimson;
       color: #FFF;

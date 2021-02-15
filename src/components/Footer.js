@@ -48,4 +48,23 @@ const Wrapper = styled.footer`
         margin: 0;
         padding-bottom: 5px;
     }
+
+    @media only screen and ${breakpoint.device.tablet} {
+        //background-color: yellow;
+       .footer-container { 
+           display: flex;
+           display-content: center;
+        }
+        
+  
+    
+  
+    }
+  
+    @media only screen and ${breakpoint.device.desktop} {
+        //background-color: red;
+        
+        
+  
+    }
 `;

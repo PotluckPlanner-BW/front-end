@@ -216,7 +216,7 @@ export default connect(mapStateToProps, {temporaryAdd, temporaryEdit, setCurrent
 const FormWrapper = styled.div`
    background-color: #88BA89;
    border-radius: 25px;
-   margin: 0 20px;
+   //margin: 0 20px;
    width: 100%;
    padding-bottom: 50px;
    height: 85vh;
@@ -396,13 +396,18 @@ const FormWrapper = styled.div`
    @media only screen and ${breakpoint.device.tablet} {
       //background-color: yellow;
 
+      width: 50%;
+      margin-right: 10px;
+      
 
+  
 
   }
 
   @media only screen and ${breakpoint.device.desktop} {
       //background-color: red;
       width: 35%;
+      margin-right: 10px;
       
 
   }
