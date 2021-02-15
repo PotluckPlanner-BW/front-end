@@ -52,8 +52,7 @@ const Wrapper = styled.footer`
     @media only screen and ${breakpoint.device.tablet} {
         //background-color: yellow;
        .footer-container { 
-           display: flex;
-           display-content: center;
+           //display: flex;
         }
         
   

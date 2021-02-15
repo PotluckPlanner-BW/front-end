@@ -54,7 +54,9 @@ const FormWrapper = styled.div`
     @media only screen and ${breakpoint.device.tablet} {
         //background-color: yellow;
   
-        
+        .greeting, .text {
+            text-align: center;
+        }
         
   
   

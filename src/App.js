@@ -4,13 +4,14 @@ import styled from 'styled-components';
 import breakpoint from './breakpoint';
 
 import './App.css';
-import LoginForm from './components/user/login'
-import RegisterForm from './components/user/register'
-import PotluckForm from './components/dashboard/PotluckForm'
-import PotluckCard from './components/dashboard/PotluckCard'
-import PotluckDisplay from './components/dashboard/PotluckDisplay'
-import Navigation from './components/dashboard/Navigation'
+import LoginForm from './components/user/Login';
+import RegisterForm from './components/user/Register';
+import PotluckForm from './components/dashboard/PotluckForm';
+import PotluckCard from './components/dashboard/PotluckCard';
+import PotluckDisplay from './components/dashboard/PotluckDisplay';
+import Navigation from './components/dashboard/Navigation';
 import Landing from './components/LandingPage';
+import About from './components/About';
 
 //images
 import logo from './images/logo-v-2.svg';
@@ -22,7 +23,7 @@ function App() {
         <NavigationWrapper>
           <NavLink to='/'><img src={logo} alt='Company logo' className='nav__logo'/></NavLink>
           <div className="nav-links">
-              <StyledLink exact to="/dashboard" className='nav__link'>Planner</StyledLink>
+              <StyledLink exact to="/dashboard" className='nav__link'>My Planner</StyledLink>
               <StyledLink exact to="/about" className='nav__link'>About</StyledLink>
               <StyledLink exact to="/login" className='nav__link'>Login</StyledLink>
               <StyledLink exact to="/register" className='nav__link'><button>Register</button></StyledLink>
@@ -35,6 +36,7 @@ function App() {
         <Route exact path='/login' component={LoginForm}/>
         <Route exact path='/register' component={RegisterForm}/>
         <Route exact path='/dashboard' component={PotluckDisplay}/>
+        <Route exact path='/about' component={About}/>
       </Switch>
        
     </div>

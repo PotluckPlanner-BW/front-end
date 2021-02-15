@@ -14,16 +14,6 @@ import bgImage from '../../images/login-bg-hero.svg';
 import bgImageDesktop from '../../images/login-bg-hero-desktop.svg';
 import breakpoint from '../../styles/breakpoints';
 
-//color palette
-const colors = {
-   whitishBrown: 'F3DCA3',
-   lightBrown: 'DFB670',
-   brown: 'B77A3F',
-   mediumBrown: '8B5227',
-   darkBrown: '653819',
-   white: 'FFFFFF',
-   red: 'FF5757'
-}
 
 const loginState = {
   username: "",
@@ -162,6 +152,7 @@ const ImageDiv = styled.div`
 
       img {
          width: 200px;
+         border-radius: 50%;
       }
 
       
@@ -193,7 +184,7 @@ const FormWrapper = styled.div`
          width: 300px;
       }
       h2 {
-         color: #22BEAD;
+         color: #10282A;
       }
       input{
          border: 0;
@@ -201,7 +192,7 @@ const FormWrapper = styled.div`
       }
       a{
          display: block;
-         color: #22BEAD;  
+         color: #10282A;  
          font-weight: bold; 
       }
       
@@ -214,7 +205,7 @@ const FormWrapper = styled.div`
          height: 45px;
          width: 300px;
          padding: 0 8px;
-         color: #22BEAD;
+         color: #10282A;
       }
       .baseline {
          height: 3px;
@@ -275,7 +266,7 @@ const FormWrapper = styled.div`
          text-overflow: ellipsis;
          text-transform: uppercase;
          color: #fff;
-         background-color: #F6B394;
+         background-color: #F76C61;
          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
             0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
          font-family: 'Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui,
@@ -360,7 +351,7 @@ const FormWrapper = styled.div`
       }
 
       .register-link{
-         color: #22BEAD;
+         color: #88BA89;
          text-decoration: none;
       }
    }

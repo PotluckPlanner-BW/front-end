@@ -144,14 +144,12 @@ export default RegisterForm;
 
 const ImageDiv = styled.div`
    position: relative;
-
    img {
       width: 200px;
+      border-radius: 50%;
    }
-
    @media only screen and ${breakpoint.device.desktop}{
       position: relative;
-
       img {
          display: none;
       }
@@ -159,19 +157,17 @@ const ImageDiv = styled.div`
 `;
 
 const FormWrapper = styled.div`
-
 @media only screen and ${breakpoint.device.mobile}{
    background-color: #F7FAFB;
    height: 82vh;
    padding-top: 50px;
    height: 85vh;
-
    form{
       margin: 0 auto;
       width: 300px;
    }
    h2 {
-      color: #22BEAD;
+      color: #10282A;
    }
    input{
       border: 0;
@@ -192,13 +188,12 @@ const FormWrapper = styled.div`
       height: 45px;
       width: 300px;
       padding: 0 8px;
-      color: #22BEAD;
+      color: #10282A;
    }
    .baseline {
       height: 3px;
       background-color: #dcdcdc;
    }
-
    /*********** Hover.css > Underline From Left > Modified *******************/
    .baseline {
       -webkit-transform: perspective(1px) translateZ(0);
@@ -231,12 +226,10 @@ const FormWrapper = styled.div`
    .baseline:active:before {
        right: 0;
    }
-
    /************ Crucial style rule ******************/
    input:focus + .baseline:before {
       right: 0;
    }
-
    // BUTTON=======================================
    button{
       position: relative;
@@ -253,7 +246,7 @@ const FormWrapper = styled.div`
       text-overflow: ellipsis;
       text-transform: uppercase;
       color: #fff;
-      background-color: #F6B394;
+      background-color: #F76C61;
       box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
          0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
       font-family: 'Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui,
@@ -271,19 +264,16 @@ const FormWrapper = styled.div`
       box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
          0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
    }
-
    button:active {
       box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
          0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
    }
-
    button:disabled {
       color: rgba(0, 0, 0, 0.38);
       background-color: rgba(0, 0, 0, 0.12);
       box-shadow: none;
       cursor: initial;
    }
-
    button::before {
       content: '';
       position: absolute;
@@ -295,23 +285,18 @@ const FormWrapper = styled.div`
       opacity: 0;
       transition: opacity 0.2s;
    }
-
    button:hover::before {
       opacity: 0.12;
    }
-
    button:focus::before {
       opacity: 0.2;
    }
-
    button:active::before {
       opacity: 0.32;
    }
-
    button:disabled::before {
       opacity: 0;
    }
-
    button::after {
       content: '';
       position: absolute;
@@ -326,30 +311,24 @@ const FormWrapper = styled.div`
       transform: translate(-50%, -50%) scale(1);
       transition: opacity 1s, transform 0.5s;
    }
-
    button:active::after {
       opacity: 0.4;
       transform: translate(-50%, -50%) scale(0);
       transition: transform 0s;
    }
-
    button:disabled::after {
       opacity: 0;
    }
-
    .register-link{
-      color: #22BEAD;
+      color: #88BA89;
       text-decoration: none;
    }
 }
-
 @media only screen and ${breakpoint.device.desktop}{
    height: 95vh;
    display: flex;
    padding-top: 0px;
-
    
-
    .desktop-hero-image {
       display: block;
       width: 50%;
@@ -362,7 +341,6 @@ const FormWrapper = styled.div`
       background-size: cover; /
       height: 90vh;
    }
-
    .form-wrapper {
       width: 50%;
       display: grid;
