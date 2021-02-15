@@ -22,7 +22,7 @@ const About = () => {
         },
         {
             id: 3,
-            name: 'Valerie',
+            name: 'Valerie Vazquez',
             image: 'https://avatars.githubusercontent.com/u/53797814?s=400&u=2bd18e68577dc712d2727cb70cdee64b19127aeb&v=4',
             github: 'https://github.com/valerievazq',
             linkedin: ''
