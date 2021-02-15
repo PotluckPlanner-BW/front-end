@@ -6,8 +6,8 @@ import * as yup from 'yup';
 
 //React icons
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import { BiUserCircle } from 'react-icons/bi';
-import { AiOutlineLock } from 'react-icons/ai';
+// import { BiUserCircle } from 'react-icons/bi';
+// import { AiOutlineLock } from 'react-icons/ai';
 
 //resoruces
 import bgImage from '../../images/login-bg-hero.svg';
