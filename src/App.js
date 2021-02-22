@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import breakpoint from './breakpoint';
 
 import './App.css';
-import LoginForm from './components/user/Login';
-import RegisterForm from './components/user/Register';
+import LoginForm from './components/user/login';
+import RegisterForm from './components/user/register';
 import PotluckForm from './components/dashboard/PotluckForm';
 import PotluckCard from './components/dashboard/PotluckCard';
 import PotluckDisplay from './components/dashboard/PotluckDisplay';
