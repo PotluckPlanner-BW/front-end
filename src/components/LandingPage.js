@@ -44,8 +44,9 @@ const services = [
 const Landing = () => {
     return (
         <Wrapper>
+            <div className='wrapper'></div>
             <div className='hero-section'>
-                <div className='left-side-mobile'>
+                <div className='left-side'>
                     <img src={hero} alt='' className='hero'/>
                 </div>
                 <div className='right-side'>
@@ -54,38 +55,45 @@ const Landing = () => {
 
                         <p>Your meal planning in one place. Track your list. Invite guests. Keep it simple.</p>
 
-                        <Link to='/login'><button className='hero-btn'>Start Tracking</button></Link>
+                        <Link to='/login'>
+                            <button className='hero-btn'>Start Tracking</button>
+                        </Link>
                         <div className='store-icon-div'>
                             <img src={appleStore} alt='apple store' className='store-icon'/>
                             <img src={googlePlay} alt='Google play store' className='store-icon'/>
                         </div>
                     </div>
                 </div>
-                <div className='right-side-desktop'>
-                    <img src={hero} alt='' className='hero'/>
-                </div>
-                
             </div>
 
             <div className='highlight'>
+                <div className='highlight-styles'>
+                    <div className='trusted-by'>
+                        <h5>Trusted By</h5>
+                        <img 
+                            src={companies} 
+                            alt='complany logos' 
+                            className='companies-mobile'
+                        />
+                        <div>
+                            <p>Thousands of users have already added more effiency to their event planning with Potluck Planner. Get your account set up today!</p>
+                            <Link to='/'>
+                                <button>See More</button>
+                            </Link>
+                        </div>
+                    </div>
 
-                <div className='trusted-by'>
-                    <h5>Trusted By</h5>
-                    <img src={companies} alt='complany logos' className='companies-mobile'/>
-                    <div>
-                        <p>Thousands of users have already added more effiency to their event planning with Potluck Planner. Get your account set up today!</p>
-                        <Link to='/'><button>See More</button></Link>
+                    <div className='company-logos'>
+                        <img 
+                            src={companies} 
+                            alt='complany logos' 
+                            className='companies-desktop'
+                        />
                     </div>
                 </div>
-
-                <div className='company-logos'>
-                    <img src={companies} alt='complany logos' className='companies-desktop'/>
-                </div>
-                
             </div>
 
             <div className='service-card-wrapper'>
-
                 {services.map(item => {
                     return (
                         <div key={item.id} className='service-card'>
@@ -105,7 +113,8 @@ const Landing = () => {
                     </div>
                     <div className='action-info'>
                         <h6>What's Stopping You?</h6>
-                        <p>Plan your next big event with Potluck Planner. Curabitur ac tincidunt mauris, ut tempor ante.</p>
+                        <p>Find out why thousands of users have trusted their meal planning with us. 
+                            Try a month free, no commitments. Plan your next big event with Potluck Planner.</p>
                         <button>Get Started</button>
                     </div> 
                 </div>
@@ -120,23 +129,18 @@ export default Landing;
 
 const Wrapper = styled.section`
 
+    
     .hero-section {
         height: 100vh;
         margin: 0 50px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
     
     .hero {
         width: 360px;
     }
 
-    .right-side-desktop {
-        display: none;
-    }
-
-    .right-side {
-        display: grid;
-        place-items: center;
-    }
     .right-side h1 {
         font-size: 30px;
         margin: 0;
@@ -158,10 +162,6 @@ const Wrapper = styled.section`
         color: gray;
         margin: 0;
         padding-bottom: 30px;
-    }
-
-    .store-icon-div {
-        
     }
 
     .store-icon {
@@ -204,7 +204,7 @@ const Wrapper = styled.section`
     }
 
     .highlight p {
-        font-size: 15px;
+        font-size: 21px;
         font-weight: 400;
         line-height: 22px;
         margin: 40px 40px 20px 40px;
@@ -225,6 +225,8 @@ const Wrapper = styled.section`
     .service-card-wrapper {
         //background-color: #F8FFF8;
         padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
     .service-card {
         background-color: #FFF;
@@ -259,12 +261,13 @@ const Wrapper = styled.section`
     .action-section {
         padding: 80px 0;
         background-color: #F4F3F3;
+        
     }
 
     .action-section p {
-        font-size: 15px;
+        font-size: 21px;
         font-weight: 400;
-        line-height: 22px;
+        line-height: 33px;
         margin: 20px 40px 20px 40px;
     }
 
@@ -274,7 +277,7 @@ const Wrapper = styled.section`
     }
 
     .action-section h6 {
-        font-size: 17px;
+        font-size: 20px;
         margin: 0;
         padding: 10px 0;
     }
@@ -293,7 +296,14 @@ const Wrapper = styled.section`
     @media only screen and ${breakpoint.device.tablet} {
         //background-color: yellow;
 
-
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
         .companies-desktop {
             display: block;
         }
@@ -309,6 +319,22 @@ const Wrapper = styled.section`
 
         .service-card {
             width: 500px;
+        }
+
+        .highlight-styles {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .trusted-by div p {
+            line-height: 33px;
+        }
+
+        .right-side {
+            width: 50%;
         }
     }
 
