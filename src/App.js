@@ -43,6 +43,8 @@ function App() {
   );
 }
 
+//Online Specialist (Jr. Web Developer)
+
 export default App;
 
 const NavigationWrapper = styled.nav`

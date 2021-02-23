@@ -36,11 +36,20 @@ const Wrapper = styled.footer`
     background-color: #88BA89;
     padding: 40px 0;
 
+    .footer-container {
+        text-align: center;
+    }
+
+    .footer-container div:not(:last-child) {
+        margin-bottom: 40px;
+    }
+
     h6 {
         color: #10282A;
         font-size: 17px;
         margin: 0;
         padding: 10px;
+        padding-left: 0;
     }
 
     p {
@@ -52,7 +61,9 @@ const Wrapper = styled.footer`
     @media only screen and ${breakpoint.device.tablet} {
         //background-color: yellow;
        .footer-container { 
-           //display: flex;
+           display: flex;
+           justify-content: space-around;
+           text-align: left;
         }
         
   
