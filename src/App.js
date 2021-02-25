@@ -50,7 +50,7 @@ const NavigationWrapper = styled.nav`
    justify-content: space-between;
    align-items: center;
    padding: 0 16px;
-   border-bottom: 1px solid #efefef;
+  //  border-bottom: 1px solid #efefef;
    max-width: 1200px;
    margin: 0px auto;
    padding: 20px 20px;
