@@ -170,6 +170,7 @@ const ImageDiv = styled.div`
 
 const FormWrapper = styled.div`
 
+
    @media only screen and ${breakpoint.device.mobile}{
       background-color: #F7FAFB;
       height: 82vh;
@@ -179,6 +180,10 @@ const FormWrapper = styled.div`
          display: none;
       }
 
+   //    .form-wrapper {
+   //       max-width: 1200px;
+   //  margin: 0px auto;
+   //    }
       form{
          margin: 0 auto;
          width: 300px;

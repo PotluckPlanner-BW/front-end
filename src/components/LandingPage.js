@@ -344,7 +344,7 @@ const Wrapper = styled.section`
         
         .hero-section {
             display: flex;
-            margin: 0 50px;
+            //margin: 0 50px;
         }
 
         .right-side h1 {
@@ -386,7 +386,8 @@ const Wrapper = styled.section`
 
         .action {
             display: flex;
-            margin: 0 50px;
+            max-width: 1200px;
+            margin: 0px auto;
         }
         .action-image {
             width: 40%;

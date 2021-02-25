@@ -53,6 +53,8 @@ export default About;
 
 
 const Wrapper = styled.section`
+
+
     h3 {
         font-size: 30px;
         font-family: 'Rubik', sans-serif;
@@ -85,6 +87,8 @@ const Wrapper = styled.section`
     }
     .developers {
         padding: 10px 0;
+        max-width: 1200px;
+        margin: 0px auto;
     }
 
     

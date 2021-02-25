@@ -7,12 +7,14 @@ const DashboardPlanner = () => {
 
     return (
        <FormWrapper>
-            <div>
-                <p className='greeting'>Welcome back!</p>
-                <p className='text'>Time to plan a new dish</p>
-            </div>
-            <div>
-                <img src={dashboardHero} alt='dashboard her' className='dash-hero'/>
+           <div className="container">
+                <div>
+                    <p className='greeting'>Welcome back!</p>
+                    <p className='text'>Time to plan a new dish</p>
+                </div>
+                <div>
+                    <img src={dashboardHero} alt='dashboard her' className='dash-hero'/>
+                </div>
             </div>
         </FormWrapper>
     )
@@ -23,9 +25,15 @@ export default DashboardPlanner;
 const FormWrapper = styled.div`
     background-color: #10282A;
     padding: 20px 0;
-    margin: 20px;
     border-radius: 25px;
     position: relative;
+    
+    max-width: 1200px;
+    margin: 0px auto;
+
+    .container {
+        margin: 0 20px;
+    }
 
     .greeting, .text {
         margin: 0;

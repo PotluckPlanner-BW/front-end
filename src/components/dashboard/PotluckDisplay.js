@@ -61,7 +61,9 @@ export default connect(mapStateToProps, {})(PlantList);
 
 const DisplayWrapper = styled.div`
    // **styles for <PotluckForm/> with the component file
-    margin: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 
     .my-potluck {
       color: #10282A;
