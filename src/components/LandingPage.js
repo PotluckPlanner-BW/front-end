@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import Footer from './Footer';
 
 //images
-import companies from '../images/companies.svg'
+import companies from '../images/companies.svg';
+import deviceDash from '../images/device-dash.png';
 import hero from '../images/hero.svg';
 import iconOne from '../images/icon-one.svg';
 import iconTwo from '../images/icon-two.svg';
@@ -44,16 +45,16 @@ const services = [
 const Landing = () => {
     return (
         <Wrapper>
-            <div className='wrapper'></div>
+            {/* <div className='wrapper'></div> */}
             <div className='hero-section'>
                 <div className='left-side'>
                     <img src={hero} alt='' className='hero'/>
                 </div>
                 <div className='right-side'>
                     <div>
-                        <h1>Transform your ordinary<br/> <span>planner into a digital one</span></h1>
+                        <h1>Transforming potlucks<br/> <span>effective digital planner</span></h1>
 
-                        <p>Your meal planning in one place. Track your list. Invite guests. Keep it simple.</p>
+                        <p>Your meal planning in one place. Track your list. <br/>Invite guests. Keep it simple.</p>
 
                         <Link to='/login'>
                             <button className='hero-btn'>Start Tracking</button>
@@ -65,28 +66,46 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
+            
+            <div className='logo-banner'>
+                <img 
+                    src={companies} 
+                    alt='complany logos' 
+                    
+                />
+            </div>
 
+            <div>
+
+            <h3 style={{ margin: '0', padding: '100px 0 50px 0', fontSize: '1.6rem'}}>3 Easy Steps To Get You Started</h3>
             <div className='highlight'>
-                <div className='highlight-styles'>
-                    <div className='trusted-by'>
-                        <h5>Trusted By</h5>
-                        <img 
-                            src={companies} 
-                            alt='complany logos' 
-                            className='companies-mobile'
-                        />
-                        <div>
-                            <p>Thousands of users have already added more effiency to their event planning with Potluck Planner. Get your account set up today!</p>
-                            <Link to='/'>
-                                <button>See More</button>
-                            </Link>
-                        </div>
-                    </div>
+                        
+                <div className='steps'>
+                    
+                            <div className='steps-container'>
+                                <ul>
+                                    <li><span className='number'>1</span></li>
+                                    <li className='detail'>Create an account. Identify your financial state. Research the options in your state.</li>
+                                </ul>
+                                <ul>
+                                    <li><span className='number'>2</span></li>
+                                    <li className='detail'>Inivite friends. Choose a specific investing account strategy. Take a pre-licensing state exam. Research the options in your state.</li>
+                                </ul>
+                                <ul>
+                                    <li><span className='number'>3</span></li>
+                                    <li className='detail'>Create an account. Plan potlucks for your next getogether. Pass your license state exam. Identify your financial state. Research the options in your state.</li>
+                                </ul>
+                                <Link to='/'>
+                                    <button>See More</button>
+                                </Link>
+                            </div>
+                            
+                </div>
 
                     <div className='company-logos'>
                         <img 
-                            src={companies} 
-                            alt='complany logos' 
+                            src={deviceDash} 
+                            alt='dashboard' 
                             className='companies-desktop'
                         />
                     </div>
@@ -129,34 +148,40 @@ export default Landing;
 
 const Wrapper = styled.section`
 
-    
+    .wrapper {
+        
+    }
     .hero-section {
-        height: 100vh;
+        height: 100%;
         margin: 0 50px;
-        max-width: 1200px;
+        max-width: 1920px;
         margin: 0 auto;
+        padding: 60px 0;
     }
     
     .hero {
-        width: 360px;
+        width: 80%;
     }
 
+    
     .right-side h1 {
-        font-size: 30px;
+        text-transform: uppercase;
+        font-family: 'Rubik', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 800;
         margin: 0;
         padding-bottom: 20px;
-        font-family: 'Rubik', sans-serif;
         color: #10282A;
     }
 
     span {
         font-weight: 100px;
-        font-size: 25px;
+        font-size: 1.3rem;
         color: #88BA89;
     }
 
     .right-side p {
-        font-size: 18px;
+        font-size: 0.9rem;
         font-family: 'Heebo', sans-serif;
         font-weight: 400;
         color: gray;
@@ -181,33 +206,32 @@ const Wrapper = styled.section`
         color: #FFF4E6;
     }
 
-    .companies-desktop {
-        display: none;
+    .logo-banner {
+        background-color: #10282A;
+        padding: 15px 0;
     }
 
-    .companies-mobile {
-        width: 80%;
-        padding: 10px 0;
+    .logo-banner img {
+        width: 90%;
     }
 
-    .highlight {
-        background-color: #F4F3F3;
-        padding: 80px 0;
-        display: grid;
-        place-items: center;
+    ul {
+        display: flex;
+        list-style: none;
     }
 
-    .highlight h5 {
-        margin: 0;
-        font-size: 20px;
-        padding-bottom: 40px;
+    .number {
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: #A8ABB5;
+        padding-right: 20px;
     }
 
-    .highlight p {
-        font-size: 21px;
-        font-weight: 400;
-        line-height: 22px;
-        margin: 40px 40px 20px 40px;
+    .detail {
+        color: #808080;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-align: left;
     }
 
     .highlight button {
@@ -218,21 +242,30 @@ const Wrapper = styled.section`
         border-radius: 25px;
     }
 
+    .steps-container {
+        padding-bottom: 20px; 
+    }
+
+    .companies-desktop {
+        width: 80%;
+        margin: 50px 0 100px 0;
+    }
+
     .icons {
         width: 80px;
     }
 
     .service-card-wrapper {
-        //background-color: #F8FFF8;
+        background-color: #F4F3F3;
         padding: 80px 20px;
-        max-width: 1200px;
+        max-width: 1920px;
         margin: 0 auto;
     }
     .service-card {
         background-color: #FFF;
         border-radius: 20px;
         padding: 35px 0;
-        margin: 0 60px 40px 60px;
+        //margin: 0 60px 40px 60px;
         -webkit-box-shadow: 5px 5px 15px 5px #e8e6e6; 
         box-shadow: 5px 5px 15px 5px #e8e6e6;
     }
@@ -260,7 +293,6 @@ const Wrapper = styled.section`
     
     .action-section {
         padding: 80px 0;
-        background-color: #F4F3F3;
         
     }
 
@@ -300,16 +332,9 @@ const Wrapper = styled.section`
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 1200px;
+            max-width: 1920px;
             margin: 0 auto;
             width: 100%;
-        }
-        .companies-desktop {
-            display: block;
-        }
-
-        .companies-desktop {
-            display: none;
         }
 
         .service-card-wrapper {
@@ -323,7 +348,7 @@ const Wrapper = styled.section`
 
         .highlight-styles {
             display: flex;
-            max-width: 1200px;
+            max-width: 1920px;
             width: 100%;
             margin: 0 auto;
             align-items: center;
@@ -346,13 +371,18 @@ const Wrapper = styled.section`
             display: flex;
             //margin: 0 50px;
         }
+        .right-side {
+            text-align: left;
+            margin-left: 9%;
+        }
 
         .right-side h1 {
-            font-size: 40px;
+            font-size: 2rem;
+            font-weight: 700;
         }
     
         span {
-            font-size: 30px;
+            font-size: 1.5rem;
             color: #88BA89;
         }
         .left-side-mobile {
@@ -374,6 +404,21 @@ const Wrapper = styled.section`
             width: 40%;
         }
 
+        .logo-banner img {
+            width: 1000px;
+        }  
+        .steps {
+            text-align: left;
+        }
+
+        .steps-container {
+            padding: 0 30px;
+        }
+
+        .steps-container button {
+            text-align: center;
+        }
+
         .service-card-wrapper {
             display: flex;
             padding: 80px 50px;
@@ -386,7 +431,7 @@ const Wrapper = styled.section`
 
         .action {
             display: flex;
-            max-width: 1200px;
+            max-width: 1920px;
             margin: 0px auto;
         }
         .action-image {
@@ -408,9 +453,20 @@ const Wrapper = styled.section`
         }
 
         .highlight {
+            max-width: 1920px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-around;
-            padding: 150px 50px;
+            padding: 15px 50px 150px 50px;
+        }
+
+        .steps, .company-logos {
+            width: 50%;
+        }
+
+        .steps {
+            display: grid;
+            place-items: center;
         }
 
         .highlight h5, .highlight p {

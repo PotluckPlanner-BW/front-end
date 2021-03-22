@@ -64,7 +64,7 @@ const Wrapper = styled.footer`
            display: flex;
            justify-content: space-around;
            text-align: left;
-           max-width: 1200px;
+           max-width: 1920px;
            margin: 0 auto;
         }
         
