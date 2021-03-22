@@ -14,6 +14,13 @@ import iconThree from '../images/icon-three.svg';
 import actionImage from '../images/action-image.svg';
 import appleStore from '../images/apple-store.png';
 import googlePlay from '../images/google-play.png';
+import one from '../images/poster-one.png';
+import two from '../images/poster-two.png';
+import three from '../images/poster-three.png';
+import four from '../images/poster-four.png';
+import paraBg from '../images/parralox-bg.png';
+import pizzaBg from '../images/pizza-bg.png';
+
 
 //
 
@@ -40,6 +47,21 @@ const services = [
         description: 'Curabitur ac tincidunt mauris, ut tempor ante. Pellentesque aliquet quam.',
         cta: 'Learn More'
     }
+]
+
+const posters = [
+    {
+        image: one
+    },
+    {
+        image: two
+    },
+    {
+        image: three
+    },
+    {
+        image: four
+    },
 ]
 
 const Landing = () => {
@@ -79,6 +101,7 @@ const Landing = () => {
 
             <h3 style={{ margin: '0', padding: '100px 0 50px 0', fontSize: '1.6rem'}}>3 Easy Steps To Get You Started</h3>
             <div className='highlight'>
+                <div></div>
                         
                 <div className='steps'>
                     
@@ -112,7 +135,38 @@ const Landing = () => {
                 </div>
             </div>
 
+            <div style={{height: '100%', padding: '130px 0', backgroundImage: `url(${paraBg})`, backgroundAttachment: 'fixed'}}>
+                <h2 style={{color: 'white'}}>Save Time. Become More Effective.</h2>
+                {posters.map(item => (
+                    <img src={item.image} alt='' style={{width: '200px', margin: '0 10px 5px 10px'}}/>
+                ))}
+            </div>
+
+            <div className='stats-wrapper'>
+                <h2>Why Choose Potluck Planner</h2>
+                <div className='stats'>
+                    <div>
+                        <h4>78%</h4>
+                        <p>Users have increased their productivity by 87% and growing.</p>
+                    </div>
+                    <div>
+                        <h4>8%</h4>
+                        <p>Stress due to party planning has seen an 8% decline after just one month of utilization.</p>
+                    </div>
+                    <div>
+                        <h4>45%</h4>
+                        <p>lorem ipsum</p>
+                    </div>
+                    <div>
+                        <h4>90%</h4>
+                        <p>Would you recommend to a friend? 90% of users have shared and recommended us to friends and loved ones.</p>
+                    </div>
+                </div>
+                
+            </div>
+
             <div className='service-card-wrapper'>
+                
                 {services.map(item => {
                     return (
                         <div key={item.id} className='service-card'>
@@ -248,7 +302,27 @@ const Wrapper = styled.section`
 
     .companies-desktop {
         width: 80%;
-        margin: 50px 0 100px 0;
+        //margin-top: 50px;
+    }
+
+    .stats-wrapper {
+        max-width: 1920px;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .stats {
+        background-image: url(${pizzaBg});
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 0 50px
+    }
+
+    .stats h4 {
+        color: #F76C61;
+        font-weight: 800;
+        font-size: 2rem;
+        margin: 0;
     }
 
     .icons {
@@ -354,9 +428,17 @@ const Wrapper = styled.section`
             align-items: center;
         }
 
-        .trusted-by div p {
-            line-height: 33px;
-        }
+       .stats-wrapper {
+            padding: 130px 0;
+       }
+
+       .stats {
+           padding: 0 90px
+       }
+
+       .stats h4 {
+           font-size: 3rem;
+       }
 
         .right-side {
             width: 50%;
@@ -407,18 +489,13 @@ const Wrapper = styled.section`
         .logo-banner img {
             width: 1000px;
         }  
-        .steps {
-            text-align: left;
-        }
 
-        .steps-container {
-            padding: 0 30px;
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 90px
         }
-
-        .steps-container button {
-            text-align: center;
-        }
-
+        
         .service-card-wrapper {
             display: flex;
             padding: 80px 50px;
@@ -445,28 +522,15 @@ const Wrapper = styled.section`
         .action-info {
             width: 60%;
         }
-        .companies-mobile {
-            display: none;
-        }
-        .companies-desktop {
-            display: block;
-        }
+        
 
         .highlight {
             max-width: 1920px;
             margin: 0 auto;
+            width: 100%;
             display: flex;
             justify-content: space-around;
-            padding: 15px 50px 150px 50px;
-        }
-
-        .steps, .company-logos {
-            width: 50%;
-        }
-
-        .steps {
-            display: grid;
-            place-items: center;
+            padding: 15px 0 150px 0;
         }
 
         .highlight h5, .highlight p {
@@ -478,18 +542,39 @@ const Wrapper = styled.section`
             margin: 0 50px;
         }
 
-        .highlight img {
-            width: 100%;
-        }
-
-        .trusted-by {
+        .steps, .company-logos {
             width: 50%;
         }
 
-        .company-logos {
+
+        .steps {
+            width: 50%;
+            display: grid;
+            place-items: center;
+            text-align: left;
+            margin-left: 180px;
+        }
+
+        .steps, .company-logos {
             width: 50%;
         }
+
+        .steps-container button {
+            text-align: center;
+        }
+
+        .companies-mobile {
+            display: none;
+        }
+        .companies-desktop {
+            display: block;
+            width: 350px;
+            margin-right: 180px;
+        }
+
 
     }
     
 `;
+
+
