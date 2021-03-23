@@ -88,7 +88,7 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-            
+            <div id="wave"></div>
             <div className='logo-banner'>
                 <img 
                     src={companies} 
@@ -118,10 +118,11 @@ const Landing = () => {
                                     <li><span className='number'>3</span></li>
                                     <li className='detail'>Create an account. Plan potlucks for your next getogether. Pass your license state exam. Identify your financial state. Research the options in your state.</li>
                                 </ul>
-                                <Link to='/'>
-                                    <button>See More</button>
-                                </Link>
+                                
                             </div>
+                            <Link to='/'>
+                                <button className='steps-btn'>See More</button>
+                            </Link>
                             
                 </div>
 
@@ -155,11 +156,11 @@ const Landing = () => {
                     </div>
                     <div>
                         <h4>45%</h4>
-                        <p>lorem ipsum</p>
+                        <p>45% of users said parties are more organized and eventful using Potluck Planner.</p>
                     </div>
                     <div>
                         <h4>90%</h4>
-                        <p>Would you recommend to a friend? 90% of users have shared and recommended us to friends and loved ones.</p>
+                        <p>90% of users have shared or recommended us to friends and loved ones.</p>
                     </div>
                 </div>
                 
@@ -235,10 +236,11 @@ const Wrapper = styled.section`
     }
 
     .right-side p {
-        font-size: 0.9rem;
         font-family: 'Heebo', sans-serif;
+        font-size: 1rem;
         font-weight: 400;
-        color: gray;
+        line-height: 1.5rem;
+        color: #808080;
         margin: 0;
         padding-bottom: 30px;
     }
@@ -253,11 +255,31 @@ const Wrapper = styled.section`
     }
 
     .hero-btn {
-        padding: 10px 50px;
+        padding: 15px 80px;
         border: none;
         border-radius: 0 25px 25px 25px;
         background-color: #88BA89;
+        font-size: 1rem;
         color: #FFF4E6;
+        transition: 0.5s;
+    }
+
+    .hero-btn:hover {
+        cursor: pointer;
+        background-color: rgba(136, 186, 137, 0.5);
+        transition: 0.5s;
+        color: #88ba89;
+    }
+
+    .steps-btn {
+        padding: 15px 80px;
+        border: none;
+        border-radius: 0 25px 25px 25px;
+        background-color: #88BA89;
+        font-size: 1rem;
+        color: #FFF4E6;
+        transition: 0.5s;
+        margin-bottom: 80px;
     }
 
     .logo-banner {
@@ -309,13 +331,17 @@ const Wrapper = styled.section`
         max-width: 1920px;
         height: 100%;
         margin: 0 auto;
-    }
-    .stats {
         background-image: url(${pizzaBg});
-        background-size: contain;
+        background-size: 650px;
         background-repeat: no-repeat;
         background-position: center;
-        padding: 0 50px
+        //padding: 0 50px;
+    }
+
+    h2 {
+        padding-bottom: 50px;
+    }
+    .stats {
     }
 
     .stats h4 {
@@ -323,6 +349,15 @@ const Wrapper = styled.section`
         font-weight: 800;
         font-size: 2rem;
         margin: 0;
+        padding-bottom: 20px;
+    }
+
+    .stats p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5rem;
+        color: #808080;
+        margin: 0 10px;
     }
 
     .icons {
@@ -411,6 +446,10 @@ const Wrapper = styled.section`
             width: 100%;
         }
 
+        .companies-desktop {
+            width: 350px;
+        }
+
         .service-card-wrapper {
             display: grid;
             place-items: center;
@@ -493,7 +532,12 @@ const Wrapper = styled.section`
         .stats {
             display: flex;
             justify-content: space-around;
-            padding: 0 90px
+            margin: 0 90px;
+            
+        }
+
+        .stats h4 {
+            font-size: 4rem;
         }
         
         .service-card-wrapper {
@@ -572,7 +616,18 @@ const Wrapper = styled.section`
             margin-right: 180px;
         }
 
+        .steps-btn {
+            padding: 15px 80px;
+            border: none;
+            border-radius: 0 25px 25px 25px;
+            background-color: #88BA89;
+            font-size: 1rem;
+            color: #FFF4E6;
+            transition: 0.5s;
+            margin-bottom: 0;
+        }
 
+       
     }
     
 `;
