@@ -30,21 +30,21 @@ const services = [
         id: 1,
         title: 'Set It + Forget It',
         icon: iconOne,
-        description: 'Curabitur ac tincidunt mauris, ut tempor ante. Pellentesque aliquet quam.',
+        description: 'Create an account. Identify your financial state. Research the options in your state.',
         cta: 'Get Started'
     },
     {
         id: 2,
         title: 'What You Need',
         icon: iconTwo,
-        description: 'Curabitur ac tincidunt mauris, ut tempor ante. Pellentesque aliquet quam.',
+        description: 'Inivite friends. Choose a specific investing account strategy. Take a pre-licensing state exam. Research the options in your state.',
         cta: 'Sign Up'
     },
     {
         id: 3,
         title: 'Always Reliable',
         icon: iconThree,
-        description: 'Curabitur ac tincidunt mauris, ut tempor ante. Pellentesque aliquet quam.',
+        description: 'Create an account. Plan potlucks for your next getogether. Pass your license state exam. Identify your financial state. Research the options in your state.',
         cta: 'Learn More'
     }
 ]
@@ -98,8 +98,9 @@ const Landing = () => {
             </div>
 
             <div>
-
-            <h3 style={{ margin: '0', padding: '100px 0 50px 0', fontSize: '1.6rem'}}>3 Easy Steps To Get You Started</h3>
+            <h3 style={{ paddingTop: '120px'}}>start today</h3>
+            {/* style={{ margin: '0', padding: '100px 0 50px 0', fontSize: '1.6rem'}} */}
+            <h2 style={{color: '#FF9880'}}>3 Easy Steps To Get You Started</h2>
             <div className='highlight'>
                 <div></div>
                         
@@ -137,13 +138,16 @@ const Landing = () => {
             </div>
 
             <div style={{height: '100%', padding: '130px 0', backgroundImage: `url(${paraBg})`, backgroundAttachment: 'fixed'}}>
+                <h3>products</h3>
                 <h2 style={{color: 'white'}}>Save Time. Become More Effective.</h2>
                 {posters.map(item => (
                     <img src={item.image} alt='' style={{width: '200px', margin: '0 10px 5px 10px'}}/>
                 ))}
             </div>
 
+
             <div className='stats-wrapper'>
+                <h3>achievements</h3>
                 <h2>Why Choose Potluck Planner</h2>
                 <div className='stats'>
                     <div>
@@ -338,8 +342,20 @@ const Wrapper = styled.section`
         //padding: 0 50px;
     }
 
+    h3 {
+        font-family: 'Ballet', cursive;
+        font-size: 2.5rem;
+        font-weight: 400;
+        color: #808080;
+        margin: 0;
+    }
+
     h2 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 2rem;
+        color: #111;
         padding-bottom: 50px;
+        margin: 0;
     }
     .stats {
     }
@@ -542,7 +558,7 @@ const Wrapper = styled.section`
         
         .service-card-wrapper {
             display: flex;
-            padding: 80px 50px;
+            padding: 150px 50px;
         }
 
         .service-card {
