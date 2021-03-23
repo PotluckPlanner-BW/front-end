@@ -97,10 +97,10 @@ const Landing = () => {
                 />
             </div>
 
-            <div>
+            <div className='steps-wrapper'>
             <h3 style={{ paddingTop: '120px'}}>start today</h3>
             {/* style={{ margin: '0', padding: '100px 0 50px 0', fontSize: '1.6rem'}} */}
-            <h2 style={{color: '#FF9880'}}>3 Easy Steps To Get You Started</h2>
+            <h2>3 Easy Steps To Get You Started</h2>
             <div className='highlight'>
                 <div></div>
                         
@@ -186,15 +186,16 @@ const Landing = () => {
 
             <div className='action-section'>
                 <div className='action'>
-                    <div className='action-image'> 
-                        <img src={actionImage} alt='woman eating burger'/>
-                    </div>
+                    
                     <div className='action-info'>
-                        <h6>What's Stopping You?</h6>
+                        <h2>What's Stopping You?</h2>
                         <p>Find out why thousands of users have trusted their meal planning with us. 
                             Try a month free, no commitments. Plan your next big event with Potluck Planner.</p>
                         <button>Get Started</button>
                     </div> 
+                    <div className='action-image'> 
+                        <img src={actionImage} alt='woman eating burger'/>
+                    </div>
                 </div>
                 
             </div>
@@ -270,20 +271,28 @@ const Wrapper = styled.section`
 
     .hero-btn:hover {
         cursor: pointer;
-        background-color: rgba(136, 186, 137, 0.5);
+        background-color: rgba(136, 186, 137, 0.7);
         transition: 0.5s;
-        color: #88ba89;
+    }
+
+    .steps-wrapper {
+        margin: 0 20px 150px 0;
     }
 
     .steps-btn {
-        padding: 15px 80px;
+        padding: 20px 150px;
         border: none;
         border-radius: 0 25px 25px 25px;
-        background-color: #88BA89;
+        background-color: #F76C61;
         font-size: 1rem;
         color: #FFF4E6;
         transition: 0.5s;
-        margin-bottom: 80px;
+        margin-bottom: 50px;
+    }
+
+    .steps-btn:hover {
+        background-color: rgba(247, 107, 97, 0.7);
+        cursor: pointer;
     }
 
     .logo-banner {
@@ -314,14 +323,6 @@ const Wrapper = styled.section`
         text-align: left;
     }
 
-    .highlight button {
-        background-color: #88BA89;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 25px;
-    }
-
     .steps-container {
         padding-bottom: 20px; 
     }
@@ -339,7 +340,7 @@ const Wrapper = styled.section`
         background-size: 650px;
         background-repeat: no-repeat;
         background-position: center;
-        //padding: 0 50px;
+        padding: 120px 50px;
     }
 
     h3 {
@@ -382,7 +383,7 @@ const Wrapper = styled.section`
 
     .service-card-wrapper {
         background-color: #F4F3F3;
-        padding: 80px 20px;
+        padding: 120px 20px;
         max-width: 1920px;
         margin: 0 auto;
     }
@@ -390,7 +391,7 @@ const Wrapper = styled.section`
         background-color: #FFF;
         border-radius: 20px;
         padding: 35px 0;
-        //margin: 0 60px 40px 60px;
+        margin: 0 60px 40px 60px;
         -webkit-box-shadow: 5px 5px 15px 5px #e8e6e6; 
         box-shadow: 5px 5px 15px 5px #e8e6e6;
     }
@@ -433,12 +434,6 @@ const Wrapper = styled.section`
         place-items: center;
     }
 
-    .action-section h6 {
-        font-size: 20px;
-        margin: 0;
-        padding: 10px 0;
-    }
-
     .action-section button {
         background-color: #88BA89;
         color: white;
@@ -447,6 +442,15 @@ const Wrapper = styled.section`
         border: none;
         border-radius: 25px;
     }
+
+    .action-info p {
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: #808080;
+    }
+
     .action-section img {
         width: 250px;
     }
@@ -590,7 +594,7 @@ const Wrapper = styled.section`
             width: 100%;
             display: flex;
             justify-content: space-around;
-            padding: 15px 0 150px 0;
+            padding: 15px 0 0 0;
         }
 
         .highlight h5, .highlight p {
@@ -632,16 +636,7 @@ const Wrapper = styled.section`
             margin-right: 180px;
         }
 
-        .steps-btn {
-            padding: 15px 80px;
-            border: none;
-            border-radius: 0 25px 25px 25px;
-            background-color: #88BA89;
-            font-size: 1rem;
-            color: #FFF4E6;
-            transition: 0.5s;
-            margin-bottom: 0;
-        }
+       
 
        
     }
